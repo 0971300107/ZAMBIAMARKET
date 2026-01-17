@@ -2,996 +2,829 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Zambia Market - Vente de meubles de qualité avec livraison à domicile. Contactez-nous sur WhatsApp pour les prix.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zambia Market - Vente de Meubles</title>
     <style>
-        /* Variables CSS */
-        :root {
-            --primary-color: #1a3c27;
-            --secondary-color: #ffd700;
-            --whatsapp-color: #25D366;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gray-color: #6c757d;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
-
-        /* Reset et base */
+        /* RESET ET BASE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background-color: #f8f9fa;
+            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            padding-top: 70px;
         }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        /* HEADER */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            background: linear-gradient(135deg, #1a3c27 0%, #2d5c43 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             z-index: 1000;
-            box-shadow: var(--shadow);
-            height: 60px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #ffd700;
         }
-
+        
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-
-        .logo-container img {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
             object-fit: cover;
-            border: 2px solid var(--secondary-color);
+            border: 2px solid #ffd700;
+            padding: 2px;
+            background: white;
         }
-
+        
         .logo-text h1 {
-            font-size: 16px;
-            color: var(--secondary-color);
-            line-height: 1.2;
+            font-size: 22px;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
-
+        
         .logo-text p {
-            font-size: 11px;
+            font-size: 12px;
             opacity: 0.9;
         }
-
-        /* Menu mobile */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            width: 26px;
-            height: 20px;
-            justify-content: space-between;
-            background: transparent;
-            border: none;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            display: block;
-            height: 2px;
-            width: 100%;
-            background-color: white;
-            border-radius: 2px;
-            transition: var(--transition);
-        }
-
-        /* Navigation */
-        .navbar {
-            display: flex;
-            list-style: none;
-            gap: 10px;
-        }
-
-        .navbar li a {
+        
+        .whatsapp-btn-header {
+            background: #25D366;
             color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
             text-decoration: none;
-            font-weight: 500;
-            padding: 6px 10px;
-            border-radius: 4px;
-            transition: var(--transition);
-            font-size: 13px;
-        }
-
-        .navbar li a:hover,
-        .navbar li a.active {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        .whatsapp-header {
+            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 6px;
-            background-color: var(--whatsapp-color);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            font-size: 12px;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
-
-        .whatsapp-header:hover {
-            background-color: #128C7E;
+        
+        .whatsapp-btn-header:hover {
+            background: #128C7E;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
-
-        /* Section Hero */
+        
+        /* HERO SECTION */
         .hero {
-            margin-top: 60px;
-            background: linear-gradient(rgba(26, 60, 39, 0.9), rgba(26, 60, 39, 0.9));
+            background: linear-gradient(rgba(26, 60, 39, 0.95), rgba(26, 60, 39, 0.9)), 
+                        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(37, 211, 102, 0.1) 0%, transparent 50%);
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            border-bottom: 5px solid #ffd700;
         }
-
+        
         .hero h1 {
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: 32px;
+            margin-bottom: 20px;
             line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+        
         .hero h1 span {
-            color: var(--secondary-color);
+            color: #ffd700;
+            text-decoration: underline;
         }
-
+        
         .hero p {
-            font-size: 14px;
-            margin-bottom: 25px;
-            max-width: 500px;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
             opacity: 0.95;
         }
-
-        /* Boutons */
+        
         .hero-buttons {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 15px;
             justify-content: center;
+            flex-wrap: wrap;
         }
-
+        
         .btn {
-            padding: 12px 24px;
+            padding: 14px 30px;
             border: none;
-            border-radius: 25px;
-            font-weight: 600;
+            border-radius: 30px;
+            font-weight: bold;
             cursor: pointer;
-            transition: var(--transition);
-            font-size: 14px;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 10px;
+            font-size: 16px;
+            min-width: 200px;
         }
-
+        
         .btn-whatsapp {
-            background-color: var(--whatsapp-color);
+            background: #25D366;
             color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
-
+        
         .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
-
-        .btn-catalog {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
+        
+        .btn-products {
+            background: #ffd700;
+            color: #1a3c27;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
-
-        .btn-catalog:hover {
-            background-color: #ffed4e;
-            transform: translateY(-2px);
+        
+        .btn-products:hover {
+            background: #ffed4e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
         }
-
-        /* Section Produits */
+        
+        /* PRODUITS SECTION */
         .products-section {
-            padding: 40px 20px;
-            background-color: white;
+            padding: 60px 20px;
+            background: white;
         }
-
+        
         .section-title {
             text-align: center;
-            font-size: 22px;
+            font-size: 32px;
+            color: #1a3c27;
             margin-bottom: 10px;
-            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
         }
-
+        
         .section-title span {
-            color: var(--secondary-color);
+            color: #ffd700;
         }
-
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #1a3c27, #ffd700, #1a3c27);
+            border-radius: 2px;
+        }
+        
         .section-subtitle {
             text-align: center;
-            color: var(--gray-color);
-            margin-bottom: 30px;
-            font-size: 14px;
-            max-width: 500px;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* Catégories */
+        
+        /* FILTRES CATEGORIES */
         .categories {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             overflow-x: auto;
-            padding: 10px 0;
-            margin-bottom: 25px;
+            padding: 15px 0;
+            margin-bottom: 30px;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
         }
-
+        
         .categories::-webkit-scrollbar {
-            display: none;
+            height: 6px;
         }
-
+        
+        .categories::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .categories::-webkit-scrollbar-thumb {
+            background: #1a3c27;
+            border-radius: 10px;
+        }
+        
         .category-btn {
-            padding: 8px 16px;
-            background-color: var(--light-color);
-            border: 1px solid #ddd;
-            border-radius: 20px;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
             font-weight: 500;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s;
             white-space: nowrap;
-            font-size: 13px;
             flex-shrink: 0;
         }
-
+        
         .category-btn.active,
         .category-btn:hover {
-            background-color: var(--primary-color);
+            background: #1a3c27;
             color: white;
-            border-color: var(--primary-color);
+            border-color: #1a3c27;
+            transform: translateY(-2px);
         }
-
-        /* Grille de produits */
+        
+        /* GRILLE PRODUITS */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
         }
-
+        
         .product-card {
-            background-color: white;
-            border-radius: 10px;
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s;
             border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
+            position: relative;
         }
-
+        
         .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
-
-        .product-image {
+        
+        .product-image-container {
             width: 100%;
-            height: 180px;
+            height: 220px;
             overflow: hidden;
             position: relative;
-            background-color: #f5f5f5;
+            background: linear-gradient(45deg, #f5f5f5, #e9e9e9);
         }
-
-        .product-image img {
+        
+        .product-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-
-        .product-card:hover .product-image img {
+        
+        .product-card:hover .product-image {
             transform: scale(1.05);
         }
-
+        
         .product-info {
-            padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
         }
-
+        
         .product-name {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a3c27;
             margin-bottom: 8px;
-            color: var(--primary-color);
             line-height: 1.3;
         }
-
+        
         .product-code {
-            font-size: 12px;
-            color: var(--gray-color);
-            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            font-family: monospace;
+            background: #f8f9fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
         }
-
+        
         .product-description {
-            font-size: 13px;
-            color: var(--gray-color);
-            margin-bottom: 15px;
-            flex-grow: 1;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
-
-        .whatsapp-price-btn {
-            background-color: var(--whatsapp-color);
+        
+        .whatsapp-price-button {
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
+            width: 100%;
+            padding: 14px;
             border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: 600;
+            border-radius: 10px;
+            font-weight: bold;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            width: 100%;
-            margin-top: auto;
+            gap: 10px;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
         }
-
-        .whatsapp-price-btn:hover {
-            background-color: #128C7E;
+        
+        .whatsapp-price-button:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
-
-        /* Pagination */
+        
+        /* PAGINATION */
         .pagination {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            margin-top: 30px;
+            gap: 10px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
-
-        .page-btn {
-            padding: 8px 14px;
-            border: 1px solid #ddd;
-            background-color: white;
-            border-radius: 6px;
+        
+        .page-button {
+            padding: 10px 18px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s;
             font-weight: 500;
-            font-size: 13px;
-        }
-
-        .page-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .page-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* Services */
-        .services {
-            padding: 40px 20px;
-            background-color: var(--light-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .service-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
+            min-width: 45px;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
         }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .service-icon {
-            font-size: 32px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--gray-color);
-            font-size: 14px;
-        }
-
-        /* Bouton WhatsApp flottant */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--whatsapp-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
-        }
-
-        /* Section Contact */
-        .contact {
-            padding: 40px 20px;
-            background-color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .contact-steps {
-            background-color: var(--light-color);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-        }
-
-        .contact-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .step-number {
-            background-color: var(--primary-color);
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            flex-shrink: 0;
-            font-weight: 600;
-            font-size: 12px;
-        }
-
-        .contact-numbers {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .whatsapp-number {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background-color: #f0f9f0;
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--dark-color);
-            transition: var(--transition);
-            border: 1px solid #d4edda;
-        }
-
-        .whatsapp-number:hover {
-            background-color: #e2f7e2;
+        
+        .page-button:hover {
+            border-color: #1a3c27;
+            color: #1a3c27;
             transform: translateY(-2px);
         }
-
-        .whatsapp-number i {
-            color: var(--whatsapp-color);
+        
+        .page-button.active {
+            background: #1a3c27;
+            color: white;
+            border-color: #1a3c27;
+        }
+        
+        /* SERVICES SECTION */
+        .services-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 4px solid #1a3c27;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #1a3c27;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1a3c27, #2d5c43);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .service-card h3 {
             font-size: 20px;
-        }
-
-        .whatsapp-number span {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .exchange-rate {
-            background-color: rgba(26, 60, 39, 0.1);
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 13px;
-            color: var(--primary-color);
-        }
-
-        /* Formulaire */
-        .contact-form {
-            background-color: var(--light-color);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .form-group {
+            color: #1a3c27;
             margin-bottom: 15px;
         }
-
+        
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            color: #1a3c27;
+            margin-bottom: 20px;
+        }
+        
+        .steps-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            background: #1a3c27;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .whatsapp-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .whatsapp-number-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f0f9f0;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+            border: 2px solid #d4edda;
+        }
+        
+        .whatsapp-number-link:hover {
+            background: #e2f7e2;
+            transform: translateY(-3px);
+            border-color: #25D366;
+        }
+        
+        .whatsapp-number-link i {
+            color: #25D366;
+            font-size: 24px;
+        }
+        
+        .exchange-rate-box {
+            background: linear-gradient(135deg, #1a3c27, #2d5c43);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
         .form-group label {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 500;
-            color: var(--dark-color);
-            font-size: 14px;
+            color: #1a3c27;
         }
-
+        
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: var(--transition);
-            font-family: inherit;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
         }
-
+        
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(26, 60, 39, 0.1);
+            border-color: #1a3c27;
+            box-shadow: 0 0 0 3px rgba(26, 60, 39, 0.1);
         }
-
-        .form-submit {
-            background-color: var(--primary-color);
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #1a3c27, #2d5c43);
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
             width: 100%;
-            font-size: 14px;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
-
-        .form-submit:hover {
-            background-color: #2a5c3f;
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #2d5c43, #1a3c27);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 60, 39, 0.3);
         }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
+        
+        /* FOOTER */
+        .footer {
+            background: linear-gradient(135deg, #1a3c27 0%, #0f2919 100%);
             color: white;
-            padding: 40px 20px 20px;
+            padding: 60px 20px 30px;
+            border-top: 5px solid #ffd700;
         }
-
+        
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
         }
-
+        
         .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
+            font-size: 20px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
         }
-
+        
         .footer-column ul {
             list-style: none;
         }
-
+        
         .footer-column ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-
+        
         .footer-column ul li a {
             color: #ddd;
             text-decoration: none;
-            transition: var(--transition);
-            font-size: 13px;
-            display: inline-block;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
+        
         .footer-column ul li a:hover {
-            color: var(--secondary-color);
+            color: #ffd700;
             transform: translateX(5px);
         }
-
+        
         .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
-            font-size: 12px;
+            font-size: 14px;
         }
-
-        /* Modal pour les images */
-        .modal {
+        
+        /* WHATSAPP FLOAT BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .whatsapp-float:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+        
+        /* MODAL IMAGE */
+        .image-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 20px;
         }
-
+        
         .modal-content {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 90%;
+            max-height: 90%;
             position: relative;
         }
-
+        
         .modal-image {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
             display: block;
         }
-
+        
         .modal-close {
             position: absolute;
-            top: -35px;
+            top: -40px;
             right: 0;
             color: white;
-            font-size: 24px;
+            font-size: 30px;
             cursor: pointer;
             background: none;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        /* Message d'erreur pour images */
-        .image-error {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5;
-            color: #666;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .image-error i {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        /* Responsive */
+        
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
+            body {
+                padding-top: 60px;
             }
             
-            .navbar {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: var(--primary-color);
-                flex-direction: column;
-                padding: 15px;
-                gap: 0;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-                box-shadow: var(--shadow);
+            .header {
+                padding: 12px 15px;
             }
             
-            .navbar.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+            .logo-text h1 {
+                font-size: 18px;
             }
             
-            .navbar li {
-                width: 100%;
+            .hero h1 {
+                font-size: 26px;
             }
             
-            .navbar li a {
-                display: block;
-                padding: 12px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .whatsapp-header {
-                padding: 5px 10px;
-                font-size: 11px;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 15px;
+            .btn {
+                min-width: 100%;
             }
             
             .hero-buttons {
                 flex-direction: column;
                 width: 100%;
                 max-width: 300px;
+                margin: 0 auto;
             }
             
-            .btn {
-                width: 100%;
+            .contact-container {
+                grid-template-columns: 1fr;
             }
             
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
             }
         }
-
-        @media (min-width: 769px) {
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .navbar {
-                gap: 15px;
-            }
-            
-            .navbar li a {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
-        }
-
+        
         @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
             .products-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero {
-                min-height: 40vh;
-                padding: 30px 15px;
+            .service-card,
+            .contact-form {
+                padding: 20px;
             }
-            
-            .hero h1 {
-                font-size: 20px;
-            }
-            
-            .logo-text h1 {
-                font-size: 14px;
-            }
-            
-            .logo-text p {
-                font-size: 10px;
-            }
-            
-            .logo-container img {
-                width: 35px;
-                height: 35px;
-            }
-            
-            .whatsapp-float {
-                bottom: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-        }
-
-        /* Support pour les iPhones */
-        @supports (padding: max(0px)) {
-            body, header, .hero, .products-section, .services, .contact, footer {
-                padding-left: max(15px, env(safe-area-inset-left));
-                padding-right: max(15px, env(safe-area-inset-right));
-            }
-            
-            .hero {
-                padding-top: max(40px, env(safe-area-inset-top));
-            }
-            
-            .whatsapp-float {
-                right: max(15px, env(safe-area-inset-right));
-                bottom: max(15px, env(safe-area-inset-bottom));
-            }
-        }
-
-        /* Animation de chargement */
-        .loading {
-            text-align: center;
-            padding: 30px;
-            color: var(--gray-color);
-            grid-column: 1 / -1;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 15px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Badge pour nouvelles images */
-        .new-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 600;
-            z-index: 1;
         }
     </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- HEADER -->
+    <header class="header">
         <div class="logo-container">
-            <img src="logo" alt="Zambia Market Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiMxQTNCMjciLz48cGF0aCBkPSJNMTAgMTVMMjAgMjVMMzAgMTVIMzVMMjAgMzBMMTAgMTVIMTVaIiBmaWxsPSIjRkZENzAwIi8+PC9zdmc+'">
+            <img src="logo" alt="Zambia Market" class="logo-img" 
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%231a3c27%22/><text x=%2250%25%22 y=%2250%25%22 dy=%22.3em%22 text-anchor=%22middle%22 fill=%22%23ffd700%22 font-size=%2230%22>ZM</text></svg>'">
             <div class="logo-text">
                 <h1>ZAMBIA MARKET</h1>
                 <p>Vente de meubles de qualité</p>
             </div>
         </div>
-        
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <ul class="navbar" id="navbar">
-            <li><a href="#home" class="active">Accueil</a></li>
-            <li><a href="#products">Produits</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        
-        <a href="https://wa.me/243971300107" class="whatsapp-header" target="_blank" aria-label="Contacter sur WhatsApp">
+        <a href="https://wa.me/243971300107" class="whatsapp-btn-header" target="_blank">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <h1>ZAMBIA MARKET <br> Meubles de qualité avec <span>livraison gratuite</span></h1>
-        <p>Découvrez notre collection exclusive de meubles. Qualité garantie, prix compétitifs et livraison à domicile avec paiement à la réception.</p>
+        <p>Découvrez notre collection exclusive de plus de 1000 modèles de meubles. Qualité garantie, prix compétitifs et livraison à domicile avec paiement à la réception.</p>
         <div class="hero-buttons">
             <button class="btn btn-whatsapp" onclick="openWhatsApp('Bonjour, je voudrais voir votre catalogue complet de meubles')">
-                <i class="fab fa-whatsapp"></i> Voir catalogue
+                <i class="fab fa-whatsapp"></i> Voir catalogue WhatsApp
             </button>
-            <button class="btn btn-catalog" onclick="scrollToProducts()">
-                <i class="fas fa-couch"></i> Voir produits
+            <button class="btn btn-products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                <i class="fas fa-couch"></i> Explorer les produits
             </button>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- PRODUITS SECTION -->
     <section class="products-section" id="products">
         <h2 class="section-title"><span>N</span>os Produits</h2>
-        <p class="section-subtitle">Cliquez sur "Prix sur WhatsApp" pour connaître le tarif exact de chaque produit</p>
+        <p class="section-subtitle">Cliquez sur "Prix sur WhatsApp" pour connaître le tarif exact de chaque produit. Taux de change: 1$ = 2,200 FC</p>
         
-        <div class="categories">
+        <div class="categories" id="categories">
             <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
             <button class="category-btn" onclick="filterProducts('salon')">Salon</button>
             <button class="category-btn" onclick="filterProducts('chambre')">Chambre</button>
             <button class="category-btn" onclick="filterProducts('cuisine')">Cuisine</button>
-            <button class="category-btn" onclick="filterProducts('bureau')">Bureau</button>
             <button class="category-btn" onclick="filterProducts('salle-manger')">Salle à manger</button>
+            <button class="category-btn" onclick="filterProducts('bureau')">Bureau</button>
             <button class="category-btn" onclick="filterProducts('exterieur')">Extérieur</button>
         </div>
         
         <div class="products-grid" id="productsGrid">
-            <!-- Les produits seront chargés ici dynamiquement -->
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Chargement des produits...</p>
-            </div>
+            <!-- Produits chargés dynamiquement -->
         </div>
         
         <div class="pagination" id="pagination">
-            <!-- La pagination sera générée ici -->
+            <!-- Pagination chargée dynamiquement -->
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
         <h2 class="section-title"><span>N</span>os Services</h2>
-        <p class="section-subtitle">Nous offrons des services complets pour votre satisfaction totale</p>
+        <p class="section-subtitle">Nous offrons des services complets pour garantir votre satisfaction totale</p>
         
         <div class="services-grid">
             <div class="service-card">
@@ -999,7 +832,7 @@
                     <i class="fas fa-truck"></i>
                 </div>
                 <h3>Livraison Gratuite</h3>
-                <p>Livraison à domicile dans toute la ville. Notre chauffeur vous contacte pour fixer le rendez-vous.</p>
+                <p>Livraison à domicile dans toute la ville. Notre chauffeur vous contacte personnellement pour fixer le rendez-vous de livraison.</p>
             </div>
             
             <div class="service-card">
@@ -1007,75 +840,75 @@
                     <i class="fas fa-money-bill-wave"></i>
                 </div>
                 <h3>Paiement Sécurisé</h3>
-                <p>Payez uniquement après avoir reçu et vérifié vos meubles. Paiement sécurisé au chauffeur.</p>
+                <p>Payez uniquement après avoir reçu et vérifié vos meubles. Paiement 100% sécurisé directement au chauffeur à la livraison.</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-headset"></i>
                 </div>
-                <h3>Support WhatsApp</h3>
-                <p>Notre équipe est disponible sur WhatsApp 24h/24 pour toutes vos questions et commandes.</p>
+                <h3>Support WhatsApp 24/7</h3>
+                <p>Notre équipe est disponible sur WhatsApp 24h/24 et 7j/7 pour répondre à toutes vos questions et prendre vos commandes.</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-exchange-alt"></i>
                 </div>
-                <h3>Taux Fixe Garanti</h3>
-                <p>Taux de change fixe: 1$ = 2,200 FC. Prix stables sans surprise.</p>
+                <h3>Taux de Change Fixe</h3>
+                <p>Taux de change garanti: 1$ = 2,200 FC. Prix stables sans fluctuations, calculés au moment de votre commande.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
         <h2 class="section-title"><span>C</span>ontactez-nous</h2>
-        <p class="section-subtitle">Commandez facilement en suivant ces étapes simples</p>
+        <p class="section-subtitle">Commandez facilement en suivant ces étapes simples via WhatsApp</p>
         
-        <div class="contact-grid">
+        <div class="contact-container">
             <div class="contact-info">
                 <h3>Comment commander ?</h3>
                 
-                <div class="contact-steps">
-                    <div class="contact-step">
+                <div class="steps-container">
+                    <div class="step">
                         <div class="step-number">1</div>
                         <div>Parcourez notre catalogue et sélectionnez les meubles qui vous intéressent</div>
                     </div>
-                    <div class="contact-step">
+                    <div class="step">
                         <div class="step-number">2</div>
                         <div>Cliquez sur "Prix sur WhatsApp" sous chaque produit pour connaître le tarif</div>
                     </div>
-                    <div class="contact-step">
+                    <div class="step">
                         <div class="step-number">3</div>
                         <div>Envoyez-nous votre adresse de livraison complète via WhatsApp</div>
                     </div>
-                    <div class="contact-step">
+                    <div class="step">
                         <div class="step-number">4</div>
                         <div>Payez à la réception après vérification complète des meubles</div>
                     </div>
                 </div>
                 
                 <h3>Nos numéros WhatsApp</h3>
-                <div class="contact-numbers">
-                    <a href="https://wa.me/243971300107" class="whatsapp-number" target="_blank">
+                <div class="whatsapp-numbers">
+                    <a href="https://wa.me/243971300107" class="whatsapp-number-link" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                         <span>+243 971 300 107</span>
                     </a>
-                    <a href="https://wa.me/243890262391" class="whatsapp-number" target="_blank">
+                    <a href="https://wa.me/243890262391" class="whatsapp-number-link" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                         <span>+243 890 262 391</span>
                     </a>
-                    <a href="https://wa.me/260967160781" class="whatsapp-number" target="_blank">
+                    <a href="https://wa.me/260967160781" class="whatsapp-number-link" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                         <span>+260 967 160 781</span>
                     </a>
                 </div>
                 
-                <div class="exchange-rate">
-                    <strong>💰 Taux de change officiel :</strong><br>
-                    1$ US = 2,200 FC (Francs Congolais)<br>
-                    <small>Prix fixes garantis - Pas de fluctuations</small>
+                <div class="exchange-rate-box">
+                    <p><strong>💰 Taux de change officiel</strong></p>
+                    <p style="font-size: 24px; margin: 10px 0;">1$ = 2,200 FC</p>
+                    <p><small>Prix fixes garantis - Pas de fluctuations de change</small></p>
                 </div>
             </div>
             
@@ -1094,7 +927,7 @@
                         <label for="message">Votre demande *</label>
                         <textarea id="message" placeholder="Décrivez les meubles qui vous intéressent, votre budget, etc." rows="4" required></textarea>
                     </div>
-                    <button type="submit" class="form-submit">
+                    <button type="submit" class="submit-btn">
                         <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
                     </button>
                 </form>
@@ -1102,48 +935,45 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>ZAMBIA MARKET</h3>
                 <p>Spécialistes en vente de meubles de qualité pour toute la maison. Livraison à domicile avec paiement à la réception.</p>
-                <div class="exchange-rate">
-                    <p><strong>💵 Taux de change :</strong><br>1$ US = 2,200 FC</p>
-                    <p><small>Prix en dollars convertis au taux fixe</small></p>
-                </div>
+                <p>Plus de 1000 modèles disponibles.</p>
             </div>
             
             <div class="footer-column">
                 <h3>Catégories</h3>
                 <ul>
-                    <li><a href="#" onclick="filterProducts('salon'); return false;">🛋️ Meubles de salon</a></li>
-                    <li><a href="#" onclick="filterProducts('chambre'); return false;">🛏️ Meubles de chambre</a></li>
-                    <li><a href="#" onclick="filterProducts('salle-manger'); return false;">🍽️ Salle à manger</a></li>
-                    <li><a href="#" onclick="filterProducts('bureau'); return false;">💼 Bureau</a></li>
-                    <li><a href="#" onclick="filterProducts('cuisine'); return false;">🍳 Cuisine</a></li>
+                    <li><a href="#" onclick="filterProducts('salon'); return false;"><i class="fas fa-couch"></i> Meubles de salon</a></li>
+                    <li><a href="#" onclick="filterProducts('chambre'); return false;"><i class="fas fa-bed"></i> Meubles de chambre</a></li>
+                    <li><a href="#" onclick="filterProducts('salle-manger'); return false;"><i class="fas fa-utensils"></i> Salle à manger</a></li>
+                    <li><a href="#" onclick="filterProducts('bureau'); return false;"><i class="fas fa-desktop"></i> Bureau</a></li>
+                    <li><a href="#" onclick="filterProducts('cuisine'); return false;"><i class="fas fa-kitchen-set"></i> Cuisine</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h3>Liens rapides</h3>
                 <ul>
-                    <li><a href="#home">🏠 Accueil</a></li>
-                    <li><a href="#products">🛒 Produits</a></li>
-                    <li><a href="#services">⚙️ Services</a></li>
-                    <li><a href="#contact">📞 Contact</a></li>
-                    <li><a href="https://wa.me/243971300107" target="_blank">💬 Support WhatsApp</a></li>
+                    <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#products"><i class="fas fa-shopping-cart"></i> Produits</a></li>
+                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="https://wa.me/243971300107" target="_blank"><i class="fab fa-whatsapp"></i> Support WhatsApp</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h3>Contact</h3>
                 <ul>
-                    <li>📱 +243 971 300 107</li>
-                    <li>📱 +243 890 262 391</li>
-                    <li>📱 +260 967 160 781</li>
-                    <li>⏰ Disponible 24h/24</li>
-                    <li>📍 Livraison dans toute la ville</li>
+                    <li><i class="fab fa-whatsapp"></i> +243 971 300 107</li>
+                    <li><i class="fab fa-whatsapp"></i> +243 890 262 391</li>
+                    <li><i class="fab fa-whatsapp"></i> +260 967 160 781</li>
+                    <li><i class="fas fa-clock"></i> Disponible 24h/24</li>
+                    <li><i class="fas fa-truck"></i> Livraison dans toute la ville</li>
                 </ul>
             </div>
         </div>
@@ -1153,21 +983,21 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/243971300107" class="whatsapp-float" target="_blank" aria-label="Contacter sur WhatsApp">
+    <!-- WHATSAPP FLOAT BUTTON -->
+    <a href="https://wa.me/243971300107" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Image Modal -->
-    <div class="modal" id="imageModal">
+    <!-- IMAGE MODAL -->
+    <div class="image-modal" id="imageModal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()" aria-label="Fermer">&times;</button>
+            <button class="modal-close" onclick="closeImageModal()">&times;</button>
             <img class="modal-image" id="modalImage" src="" alt="Produit">
         </div>
     </div>
 
     <script>
-        // Configuration
+        // CONFIGURATION
         const CONFIG = {
             whatsappNumbers: [
                 { number: '243971300107', label: '+243 971 300 107' },
@@ -1176,90 +1006,87 @@
             ],
             exchangeRate: 2200,
             productsPerPage: 12,
+            totalProducts: 100, // Pour la démo, modifiable jusqu'à 5000
             defaultImage: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNGNUY1RjUiLz48cGF0aCBkPSJNNzUgODBMMTUwIDE1MEwyMjUgODBIMjc1TDE1MCAxNzVMNzUgODBIMTI1WiIgZmlsbD0iI0NDQyIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiPkltYWdlIG5vbiBkaXNwb25pYmxlPC90ZXh0Pjwvc3ZnPg=='
         };
 
-        // Données des produits
+        // DONNÉES DES PRODUITS
         let productsData = [];
         let currentPage = 1;
         let currentCategory = 'all';
         let filteredProducts = [];
 
-        // Catégories et descriptions
-        const categories = {
-            'salon': 'Salon',
-            'chambre': 'Chambre',
-            'cuisine': 'Cuisine',
-            'bureau': 'Bureau',
-            'salle-manger': 'Salle à manger',
-            'exterieur': 'Extérieur'
-        };
-
-        const descriptions = [
-            "Canapé moderne avec tissu haute qualité, design élégant et confortable",
-            "Table à manger extensible, parfaite pour les réunions de famille",
-            "Lit double avec tête de lit rembourrée, sommier à lattes réglable",
-            "Armoire spacieuse avec portes coulissantes et miroir intégré",
-            "Bureau ergonomique avec rangements et prises USB intégrées",
-            "Chaise design pour salle à manger, assise rembourrée confortable",
-            "Meuble TV moderne avec étagères et rangements fermés",
-            "Commode 5 tiroirs en bois massif avec poignées chromées",
-            "Bibliothèque modulable adaptable à tous les types d'espace",
-            "Table basse en verre trempé avec design contemporain",
-            "Fauteuil relax avec mécanisme inclinable, parfait pour se détendre",
-            "Paravent décoratif pour séparer les espaces avec élégance",
-            "Buffet de salle à manger avec vitrine pour exposition",
-            "Table de chevet avec lampe intégrée et prise de courant",
-            "Pouf convertible pouvant servir de table d'appoint ou siège supplémentaire"
-        ];
-
-        // Initialiser les données des produits
+        // INITIALISATION DES PRODUITS
         function initializeProducts() {
+            const categories = ['salon', 'chambre', 'cuisine', 'salle-manger', 'bureau', 'exterieur'];
+            const descriptions = [
+                "Canapé moderne avec tissu haute qualité, design élégant et confortable, idéal pour votre salon.",
+                "Table à manger extensible en bois massif, parfaite pour les réunions de famille.",
+                "Lit double avec tête de lit rembourrée, sommier à lattes réglable pour un confort optimal.",
+                "Armoire spacieuse avec portes coulissantes et miroir intégré, rangement optimal.",
+                "Bureau ergonomique avec rangements intégrés et prises USB, parfait pour le télétravail.",
+                "Chaise design pour salle à manger, assise rembourrée confortable, structure en métal.",
+                "Meuble TV moderne avec étagères et rangements fermés, design épuré.",
+                "Commode 5 tiroirs en bois massif avec poignées chromées, finition haute qualité.",
+                "Bibliothèque modulable adaptable à tous les types d'espace, plusieurs coloris disponibles.",
+                "Table basse en verre trempé avec design contemporain, pièce maîtresse du salon."
+            ];
+
             productsData = [];
-            // Pour la démo, créons 100 produits
-            for (let i = 1; i <= 100; i++) {
-                const categoryKeys = Object.keys(categories);
-                const randomCategory = categoryKeys[Math.floor(Math.random() * categoryKeys.length)];
-                const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
+            
+            for (let i = 1; i <= CONFIG.totalProducts; i++) {
+                const category = categories[Math.floor(Math.random() * categories.length)];
+                const description = descriptions[Math.floor(Math.random() * descriptions.length)];
                 
-                // Générer le nom du fichier image
-                // Pour la démo, nous utilisons T-1 (1) à T-1 (100)
-                // En réalité, vous auriez T-1 (1), T-1 (2), etc. jusqu'à 5000+
-                const imageNumber = ((i - 1) % 100) + 1; // Pour la démo, on cycle sur 100 images
+                // Génération du nom d'image selon votre structure
+                // Pour la démo: T-1 (1), T-1 (2), etc. jusqu'à 5000+
+                const imageNumber = ((i - 1) % 40) + 1; // Cycle sur 40 images pour la démo
                 const imageFile = `T-1 (${imageNumber})`;
                 
                 productsData.push({
                     id: i,
-                    name: `Meuble ${categories[randomCategory]} ${i}`,
-                    category: randomCategory,
-                    description: randomDescription,
+                    name: `Meuble ${getCategoryName(category)} Modèle ${i}`,
+                    category: category,
+                    description: description,
                     image: imageFile,
                     code: `ZM-${String(i).padStart(4, '0')}`,
-                    dateAdded: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000) // Date aléatoire dans les 30 derniers jours
+                    dateAdded: new Date(Date.now() - Math.random() * 90 * 24 * 60 * 60 * 1000)
                 });
             }
             
-            // Trier par date (les plus récents en premier)
+            // Trier par date (plus récents d'abord)
             productsData.sort((a, b) => b.dateAdded - a.dateAdded);
             
             filteredProducts = [...productsData];
             renderProducts();
         }
 
-        // Afficher les produits
+        function getCategoryName(category) {
+            const names = {
+                'salon': 'Salon',
+                'chambre': 'Chambre',
+                'cuisine': 'Cuisine',
+                'salle-manger': 'Salle à Manger',
+                'bureau': 'Bureau',
+                'exterieur': 'Extérieur'
+            };
+            return names[category] || 'Décoration';
+        }
+
+        // AFFICHER LES PRODUITS
         function renderProducts() {
             const productsGrid = document.getElementById('productsGrid');
-            
             const startIndex = (currentPage - 1) * CONFIG.productsPerPage;
             const endIndex = startIndex + CONFIG.productsPerPage;
             const productsToShow = filteredProducts.slice(startIndex, endIndex);
             
             if (productsToShow.length === 0) {
                 productsGrid.innerHTML = `
-                    <div class="loading">
-                        <i class="fas fa-search" style="font-size: 40px; margin-bottom: 15px; color: #ccc;"></i>
-                        <p>Aucun produit trouvé dans cette catégorie.</p>
-                        <button class="btn" onclick="filterProducts('all')" style="margin-top: 15px;">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #666;">
+                        <i class="fas fa-search" style="font-size: 50px; margin-bottom: 20px; color: #ccc;"></i>
+                        <h3 style="margin-bottom: 15px;">Aucun produit trouvé</h3>
+                        <p>Aucun produit disponible dans cette catégorie pour le moment.</p>
+                        <button onclick="filterProducts('all')" style="margin-top: 20px; padding: 12px 25px; background: #1a3c27; color: white; border: none; border-radius: 5px; cursor: pointer;">
                             Voir tous les produits
                         </button>
                     </div>
@@ -1268,26 +1095,26 @@
             }
             
             let productsHTML = '';
-            const now = new Date();
-            const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
             
             productsToShow.forEach(product => {
                 const isNew = product.dateAdded > thirtyDaysAgo;
                 
                 productsHTML += `
-                    <div class="product-card" data-id="${product.id}">
-                        <div class="product-image" onclick="openImageModal('${product.image}', '${product.name}')">
-                            ${isNew ? '<span class="new-badge">NOUVEAU</span>' : ''}
+                    <div class="product-card">
+                        <div class="product-image-container" onclick="openImageModal('${product.image}', '${product.name}')">
+                            ${isNew ? '<div style="position: absolute; top: 10px; right: 10px; background: #ff4757; color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; z-index: 1;">NOUVEAU</div>' : ''}
                             <img src="${product.image}" 
                                  alt="${product.name}" 
+                                 class="product-image"
                                  loading="lazy"
                                  onerror="this.onerror=null; this.src='${CONFIG.defaultImage}';">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">${product.name}</h3>
-                            <div class="product-code">Code: ${product.code}</div>
+                            <div class="product-code">${product.code}</div>
                             <p class="product-description">${product.description}</p>
-                            <button class="whatsapp-price-btn" onclick="getPriceOnWhatsApp(${product.id})">
+                            <button class="whatsapp-price-button" onclick="getPriceOnWhatsApp(${product.id})">
                                 <i class="fab fa-whatsapp"></i> Prix sur WhatsApp
                             </button>
                         </div>
@@ -1298,29 +1125,24 @@
             productsGrid.innerHTML = productsHTML;
             renderPagination();
             
-            // Observer pour le lazy loading
+            // Lazy loading pour images
             if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('.product-image[loading="lazy"]');
                 const imageObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const img = entry.target;
-                            const src = img.getAttribute('data-src');
-                            if (src) {
-                                img.src = src;
-                                img.removeAttribute('data-src');
-                            }
+                            img.src = img.getAttribute('src');
                             imageObserver.unobserve(img);
                         }
                     });
                 });
                 
-                document.querySelectorAll('.product-image img[loading="lazy"]').forEach(img => {
-                    imageObserver.observe(img);
-                });
+                lazyImages.forEach(img => imageObserver.observe(img));
             }
         }
 
-        // Afficher la pagination
+        // PAGINATION
         function renderPagination() {
             const pagination = document.getElementById('pagination');
             const totalPages = Math.ceil(filteredProducts.length / CONFIG.productsPerPage);
@@ -1335,51 +1157,50 @@
             
             // Bouton précédent
             if (currentPage > 1) {
-                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage - 1})" aria-label="Page précédente">
+                paginationHTML += `<button class="page-button" onclick="changePage(${currentPage - 1})" aria-label="Page précédente">
                     <i class="fas fa-chevron-left"></i>
                 </button>`;
             }
             
-            // Calcul des pages à afficher
+            // Pages
             let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-            let endPage = startPage + maxVisiblePages - 1;
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
             
-            if (endPage > totalPages) {
-                endPage = totalPages;
+            if (endPage - startPage + 1 < maxVisiblePages) {
                 startPage = Math.max(1, endPage - maxVisiblePages + 1);
             }
             
             // Première page
             if (startPage > 1) {
-                paginationHTML += `<button class="page-btn" onclick="changePage(1)">1</button>`;
+                paginationHTML += `<button class="page-button" onclick="changePage(1)">1</button>`;
                 if (startPage > 2) {
-                    paginationHTML += `<span class="page-dots">...</span>`;
+                    paginationHTML += `<span style="padding: 10px; color: #666;">...</span>`;
                 }
             }
             
             // Pages du milieu
             for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+                paginationHTML += `<button class="page-button ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             }
             
             // Dernière page
             if (endPage < totalPages) {
                 if (endPage < totalPages - 1) {
-                    paginationHTML += `<span class="page-dots">...</span>`;
+                    paginationHTML += `<span style="padding: 10px; color: #666;">...</span>`;
                 }
-                paginationHTML += `<button class="page-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
+                paginationHTML += `<button class="page-button" onclick="changePage(${totalPages})">${totalPages}</button>`;
             }
             
             // Bouton suivant
             if (currentPage < totalPages) {
-                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage + 1})" aria-label="Page suivante">
+                paginationHTML += `<button class="page-button" onclick="changePage(${currentPage + 1})" aria-label="Page suivante">
                     <i class="fas fa-chevron-right"></i>
                 </button>`;
             }
             
-            // Informations
+            // Info
             paginationHTML += `
-                <div style="color: var(--gray-color); font-size: 13px; margin-left: 10px;">
+                <div style="color: #666; font-size: 14px; margin-left: 10px;">
                     Page ${currentPage} sur ${totalPages} • ${filteredProducts.length} produits
                 </div>
             `;
@@ -1387,25 +1208,25 @@
             pagination.innerHTML = paginationHTML;
         }
 
-        // Changer de page
+        // CHANGER DE PAGE
         function changePage(page) {
             currentPage = page;
             renderProducts();
-            // Scroll doux vers le haut de la section produits
+            // Scroll vers le haut des produits
             const productsSection = document.getElementById('products');
-            const headerHeight = document.querySelector('header').offsetHeight;
+            const headerHeight = document.querySelector('.header').offsetHeight;
             window.scrollTo({
-                top: productsSection.offsetTop - headerHeight - 10,
+                top: productsSection.offsetTop - headerHeight - 20,
                 behavior: 'smooth'
             });
         }
 
-        // Filtrer les produits
+        // FILTRER LES PRODUITS
         function filterProducts(category) {
             currentCategory = category;
             currentPage = 1;
             
-            // Mettre à jour les boutons de catégorie
+            // Mettre à jour les boutons actifs
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -1420,49 +1241,49 @@
             renderProducts();
         }
 
-        // Obtenir le prix sur WhatsApp
+        // OBTENIR LE PRIX SUR WHATSAPP
         function getPriceOnWhatsApp(productId) {
             const product = productsData.find(p => p.id === productId);
             if (!product) return;
             
-            // Choisir un numéro WhatsApp au hasard
+            // Choisir un numéro au hasard
             const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
             
             const message = encodeURIComponent(
-                `Bonjour Zambia Market !\n\n` +
+                `Bonjour Zambia Market ! 👋\n\n` +
                 `Je suis intéressé par ce produit :\n\n` +
                 `📦 *${product.name}*\n` +
                 `📝 Code : ${product.code}\n` +
                 `📋 Description : ${product.description}\n\n` +
                 `Pouvez-vous m'envoyer :\n` +
-                `• Le prix en dollars (USD)\n` +
-                `• Le prix en francs congolais (FC)\n` +
-                `• D'autres photos de ce modèle\n` +
-                `• Les options de couleur disponibles\n\n` +
-                `Taux de change : 1$ = ${CONFIG.exchangeRate.toLocaleString()} FC\n\n` +
-                `Merci !`
+                `• Le prix en dollars (USD) 💵\n` +
+                `• Le prix en francs congolais (FC) 💰\n` +
+                `• D'autres photos de ce modèle 📸\n` +
+                `• Les options de couleur disponibles 🎨\n\n` +
+                `💱 Taux de change : 1$ = ${CONFIG.exchangeRate.toLocaleString()} FC\n\n` +
+                `Merci beaucoup ! 🙏`
             );
             
             window.open(`https://wa.me/${randomNumber.number}?text=${message}`, '_blank');
             
-            // Enregistrer dans l'historique
+            // Sauvegarder dans l'historique
             saveToHistory(product);
         }
 
-        // Ouvrir WhatsApp général
+        // OUVRIR WHATSAPP GÉNÉRAL
         function openWhatsApp(prefilledMessage = '') {
             const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
             const message = encodeURIComponent(
                 prefilledMessage || 
-                "Bonjour Zambia Market !\n\nJe voudrais voir votre catalogue complet de meubles et connaître vos prix.\n\nMerci !"
+                "Bonjour Zambia Market ! 👋\n\nJe voudrais voir votre catalogue complet de meubles et connaître vos prix.\n\nMerci ! 🙏"
             );
             window.open(`https://wa.me/${randomNumber.number}?text=${message}`, '_blank');
         }
 
-        // Sauvegarder dans l'historique
+        // SAUVEGARDER DANS L'HISTORIQUE
         function saveToHistory(product) {
             try {
-                let history = JSON.parse(localStorage.getItem('zambiaHistory') || '[]');
+                let history = JSON.parse(localStorage.getItem('zambiaMarketHistory') || '[]');
                 history.unshift({
                     productId: product.id,
                     productName: product.name,
@@ -1474,145 +1295,84 @@
                     history = history.slice(0, 50);
                 }
                 
-                localStorage.setItem('zambiaHistory', JSON.stringify(history));
+                localStorage.setItem('zambiaMarketHistory', JSON.stringify(history));
             } catch (e) {
-                console.log('Impossible de sauvegarder l\'historique');
+                console.log('Erreur de sauvegarde historique');
             }
         }
 
-        // Ouvrir l'image en modal
-        function openImageModal(imageName, productName) {
+        // MODAL IMAGE
+        function openImageModal(imageSrc, productName) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             
-            modalImage.src = imageName;
+            modalImage.src = imageSrc;
             modalImage.alt = productName;
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
-        // Fermer le modal
-        function closeModal() {
+        function closeImageModal() {
             const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
             document.getElementById('modalImage').src = '';
         }
 
-        // Scroller vers les produits
-        function scrollToProducts() {
-            const productsSection = document.getElementById('products');
-            const headerHeight = document.querySelector('header').offsetHeight;
-            window.scrollTo({
-                top: productsSection.offsetTop - headerHeight,
-                behavior: 'smooth'
-            });
-        }
-
-        // Menu mobile
-        function setupMobileMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navbar = document.getElementById('navbar');
-
-            menuToggle.addEventListener('click', () => {
-                navbar.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-                
-                // Empêcher le scroll quand le menu est ouvert
-                if (navbar.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Fermer le menu en cliquant sur un lien
-            document.querySelectorAll('.navbar a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navbar.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            });
-
-            // Fermer le menu en cliquant à l'extérieur
-            document.addEventListener('click', (e) => {
-                if (navbar.classList.contains('active') && 
-                    !navbar.contains(e.target) && 
-                    !menuToggle.contains(e.target)) {
-                    navbar.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-
-        // Gestion du formulaire
-        function setupContactForm() {
-            const contactForm = document.getElementById('contactForm');
+        // GESTION DU FORMULAIRE
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const message = document.getElementById('message').value.trim();
-                
-                if (!name || !phone || !message) {
-                    alert('Veuillez remplir tous les champs obligatoires.');
-                    return;
-                }
-                
-                const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
-                
-                const whatsappMessage = encodeURIComponent(
-                    `*📞 Nouvelle demande de contact - Zambia Market*\n\n` +
-                    `👤 *Nom :* ${name}\n` +
-                    `📱 *Téléphone :* ${phone}\n\n` +
-                    `📝 *Message :*\n${message}\n\n` +
-                    `💵 *Taux de change :* 1$ = ${CONFIG.exchangeRate.toLocaleString()} FC\n\n` +
-                    `_Cette demande provient du site web Zambia Market_`
-                );
-                
-                window.open(`https://wa.me/${randomNumber.number}?text=${whatsappMessage}`, '_blank');
-                
-                // Réinitialiser le formulaire
-                this.reset();
-                
-                // Message de confirmation
-                setTimeout(() => {
-                    alert('✅ Merci ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
-                }, 100);
-            });
-        }
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !phone || !message) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
+            
+            const whatsappMessage = encodeURIComponent(
+                `*📞 NOUVELLE DEMANDE - ZAMBIA MARKET*\n\n` +
+                `👤 *Nom :* ${name}\n` +
+                `📱 *Téléphone :* ${phone}\n\n` +
+                `📝 *Message :*\n${message}\n\n` +
+                `💱 *Taux de change :* 1$ = ${CONFIG.exchangeRate.toLocaleString()} FC\n\n` +
+                `_Demande envoyée depuis le site web Zambia Market_`
+            );
+            
+            window.open(`https://wa.me/${randomNumber.number}?text=${whatsappMessage}`, '_blank');
+            
+            // Réinitialiser le formulaire
+            this.reset();
+            
+            // Message de confirmation
+            setTimeout(() => {
+                alert('✅ Merci ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
+            }, 100);
+        });
 
-        // Initialisation
+        // INITIALISATION
         document.addEventListener('DOMContentLoaded', function() {
             // Mettre à jour l'année du copyright
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
             // Initialiser les produits
-            setTimeout(() => {
-                initializeProducts();
-            }, 500); // Petit délai pour l'effet de chargement
+            initializeProducts();
             
-            // Configurer le menu mobile
-            setupMobileMenu();
-            
-            // Configurer le formulaire
-            setupContactForm();
-            
-            // Fermer le modal
+            // Fermer le modal en cliquant à l'extérieur
             document.getElementById('imageModal').addEventListener('click', function(e) {
                 if (e.target === this) {
-                    closeModal();
+                    closeImageModal();
                 }
             });
             
             // Fermer avec Échap
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    closeModal();
+                    closeImageModal();
                 }
             });
             
@@ -1625,35 +1385,13 @@
                     const target = document.querySelector(href);
                     if (target) {
                         e.preventDefault();
-                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const headerHeight = document.querySelector('.header').offsetHeight;
                         window.scrollTo({
                             top: target.offsetTop - headerHeight,
                             behavior: 'smooth'
                         });
                     }
                 });
-            });
-            
-            // Gestion du scroll pour le header
-            let lastScrollTop = 0;
-            const header = document.querySelector('header');
-            
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > 100) {
-                    if (scrollTop > lastScrollTop) {
-                        // Scroll vers le bas - cacher
-                        header.style.transform = 'translateY(-100%)';
-                    } else {
-                        // Scroll vers le haut - montrer
-                        header.style.transform = 'translateY(0)';
-                    }
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-                
-                lastScrollTop = scrollTop;
             });
         });
     </script>
