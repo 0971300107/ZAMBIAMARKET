@@ -1,355 +1,164 @@
 <!DOCTYPE html>
-<html lang="fr" class="no-js">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zambia Market - Meubles de qualité avec livraison gratuite.">
-    <meta name="keywords" content="meubles, salon, chambre, salle à manger, livraison gratuite, Congo, Kinshasa">
-    <meta name="author" content="Zambia Market">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Zambia Market - Vente de Meubles de Qualité">
-    <meta property="og:description" content="Meubles de qualité avec livraison gratuite. Paiement à la réception.">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛋️</text></svg>">
-    
-    <!-- Font Awesome -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Zambia Market - Vente de meubles de qualité avec livraison à domicile. Contactez-nous sur WhatsApp pour les prix.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <title>Zambia Market - Vente de Meubles de Qualité | Livraison Gratuite</title>
-    
+    <title>Zambia Market - Vente de Meubles</title>
     <style>
-        /* ===== VARIABLES & RESET ===== */
+        /* Variables CSS */
         :root {
-            --primary-color: #1a472a;
-            --primary-dark: #0d351e;
+            --primary-color: #1a3c27;
             --secondary-color: #ffd700;
-            --accent-color: #e63946;
+            --accent-color: #25D366;
             --light-color: #f8f9fa;
             --dark-color: #212529;
             --gray-color: #6c757d;
-            --gray-light: #e9ecef;
-            --success-color: #28a745;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
 
+        /* Reset et base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--dark-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background-color: var(--light-color);
+            color: var(--dark-color);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 2rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary-color);
-        }
-
-        .section-title.text-center::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title span {
-            color: var(--secondary-color);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            outline: none;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .btn-primary {
+        /* Header */
+        header {
             background-color: var(--primary-color);
             color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            height: 60px;
         }
 
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .btn-whatsapp {
-            background-color: #25D366;
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 16px;
+            color: var(--secondary-color);
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 26px;
+            height: 20px;
+            justify-content: space-between;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: white;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .navbar li a {
             color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 13px;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-secondary {
+        .navbar li a:hover,
+        .navbar li a.active {
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
 
-        .btn-secondary:hover {
-            background-color: #ffed4e;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-danger {
+        .whatsapp-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             background-color: var(--accent-color);
             color: white;
-        }
-
-        .btn-danger:hover {
-            background-color: #c1121f;
-            transform: translateY(-2px);
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(26, 71, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .header.scrolled {
-            padding: 10px 0;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: var(--border-radius-sm);
-            object-fit: cover;
-            border: 2px solid var(--secondary-color);
-            background-color: white;
-            padding: 5px;
-        }
-
-        .logo-text h1 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 0;
-        }
-
-        .logo-text p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.875rem;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-link {
-            color: white;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: var(--border-radius-sm);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--secondary-color);
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--secondary-color);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .whatsapp-btn-sm {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #25D366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 0.875rem;
             transition: var(--transition);
+            font-size: 12px;
         }
 
-        .whatsapp-btn-sm:hover {
+        .whatsapp-header:hover {
             background-color: #128C7E;
             transform: translateY(-2px);
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            height: 3px;
-            width: 100%;
-            background-color: white;
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        /* ===== HERO ===== */
+        /* Section Hero */
         .hero {
-            padding: 150px 0 80px;
-            background: linear-gradient(135deg, rgba(26, 71, 42, 0.9) 0%, rgba(13, 53, 30, 0.9) 100%);
+            margin-top: 60px;
+            background: linear-gradient(rgba(26, 60, 39, 0.9), rgba(26, 60, 39, 0.9)), url('Bg.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, var(--light-color), transparent);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 40px 20px;
             text-align: center;
-            position: relative;
-            z-index: 1;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: white;
+            font-size: 22px;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
         .hero h1 span {
@@ -357,94 +166,144 @@
         }
 
         .hero p {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 14px;
+            margin-bottom: 25px;
+            max-width: 500px;
+            opacity: 0.95;
         }
 
+        /* Boutons */
         .hero-buttons {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ===== PRODUCTS ===== */
-        .products-section {
-            background-color: white;
-        }
-
-        .section-subtitle {
-            color: var(--gray-color);
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .categories-filter {
-            display: flex;
             gap: 10px;
-            overflow-x: auto;
-            padding: 20px 0;
-            margin-bottom: 40px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .categories-filter::-webkit-scrollbar {
-            display: none;
-        }
-
-        .category-btn {
+        .btn {
             padding: 12px 24px;
-            background-color: var(--gray-light);
-            border: 2px solid transparent;
+            border: none;
             border-radius: 25px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            white-space: nowrap;
-            font-size: 0.875rem;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
-        .category-btn:hover,
-        .category-btn.active {
+        .btn-whatsapp {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-catalog {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-catalog:hover {
+            background-color: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        /* Section Produits */
+        .products-section {
+            padding: 40px 20px;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .section-title span {
+            color: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            font-size: 14px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Catégories */
+        .categories {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 25px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            padding: 8px 16px;
+            background-color: var(--light-color);
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: 13px;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
             background-color: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
         }
 
+        /* Grille de produits */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
         .product-card {
-            background: white;
-            border-radius: var(--border-radius);
+            background-color: white;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--gray-light);
-            position: relative;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .product-image {
             width: 100%;
-            height: 250px;
+            height: 180px;
             overflow: hidden;
             position: relative;
-            background-color: var(--gray-light);
         }
 
         .product-image img {
@@ -458,111 +317,79 @@
             transform: scale(1.05);
         }
 
-        /* Style pour le bouton de suppression d'image */
-        .image-delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--accent-color);
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .product-code {
+            font-size: 12px;
+            color: var(--gray-color);
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .whatsapp-price-btn {
+            background-color: var(--accent-color);
             color: white;
             border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            font-size: 18px;
-            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
             cursor: pointer;
-            z-index: 10;
-            opacity: 0.8;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 1;
+            gap: 8px;
+            font-size: 14px;
+            width: 100%;
+            margin-top: auto;
         }
 
-        .image-delete-btn:hover {
-            opacity: 1;
-            transform: scale(1.1);
+        .whatsapp-price-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
         }
 
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 5px 10px;
-            border-radius: var(--border-radius-sm);
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .product-name {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .product-code {
-            font-size: 0.875rem;
-            color: var(--gray-color);
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .product-description {
-            color: var(--gray-color);
-            margin-bottom: 20px;
-            font-size: 0.9375rem;
-        }
-
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-top: 15px;
-            border-top: 1px solid var(--gray-light);
-        }
-
-        .product-category {
-            font-size: 0.875rem;
-            color: var(--primary-color);
-            background-color: rgba(26, 71, 42, 0.1);
-            padding: 4px 12px;
-            border-radius: 12px;
-        }
-
+        /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 8px;
+            margin-top: 30px;
             flex-wrap: wrap;
         }
 
         .page-btn {
-            padding: 10px 20px;
-            border: 2px solid var(--gray-light);
+            padding: 8px 14px;
+            border: 1px solid #ddd;
             background-color: white;
-            border-radius: var(--border-radius-sm);
+            border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
-            font-weight: 600;
-            font-size: 0.875rem;
-            min-width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: 500;
+            font-size: 13px;
         }
 
-        .page-btn:hover:not(:disabled) {
+        .page-btn:hover {
             background-color: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
@@ -574,258 +401,64 @@
             border-color: var(--primary-color);
         }
 
-        .page-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* ===== SERVICES ===== */
-        .services-section {
+        /* Services */
+        .services {
+            padding: 40px 20px;
             background-color: var(--light-color);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
         .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--border-radius);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
             transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
         }
 
         .service-icon {
-            font-size: 3rem;
+            font-size: 32px;
             color: var(--primary-color);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* ===== CONTACT ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.75rem;
-            margin-bottom: 25px;
-        }
-
-        .contact-steps {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            margin-bottom: 40px;
-        }
-
-        .contact-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .step-number {
-            background-color: var(--primary-color);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .contact-numbers {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .whatsapp-number {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            background-color: #f0f9f0;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            color: var(--dark-color);
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .whatsapp-number:hover {
-            background-color: #e2f7e2;
-            border-color: #25D366;
-            transform: translateY(-3px);
-        }
-
-        .whatsapp-number i {
-            color: #25D366;
-            font-size: 2rem;
-        }
-
-        .whatsapp-number span {
-            font-weight: 600;
-            font-size: 1.125rem;
-        }
-
-        .exchange-rate {
-            background-color: rgba(26, 71, 42, 0.1);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .exchange-rate strong {
+            font-size: 18px;
+            margin-bottom: 12px;
             color: var(--primary-color);
-            display: block;
-            margin-bottom: 5px;
         }
 
-        .contact-form {
-            background-color: var(--light-color);
-            padding: 40px;
-            border-radius: var(--border-radius);
+        .service-card p {
+            color: var(--gray-color);
+            font-size: 14px;
         }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid var(--gray-light);
-            border-radius: var(--border-radius-sm);
-            font-size: 1rem;
-            transition: var(--transition);
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(26, 71, 42, 0.1);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 80px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-column h3 {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 15px;
-        }
-
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--secondary-color);
-            padding-left: 5px;
-        }
-
-        .footer-about p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-        }
-
-        /* ===== WHATSAPP FLOAT ===== */
+        /* Bouton WhatsApp flottant */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
             color: white;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            font-size: 22px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             z-index: 999;
             transition: var(--transition);
             text-decoration: none;
@@ -833,1085 +466,963 @@
 
         .whatsapp-float:hover {
             background-color: #128C7E;
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            transform: scale(1.1);
         }
 
-        /* ===== MODAL ===== */
+        /* Section Contact */
+        .contact {
+            padding: 40px 20px;
+            background-color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .contact-steps {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .contact-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .contact-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .whatsapp-number {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background-color: #f0f9f0;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: var(--transition);
+            border: 1px solid #d4edda;
+        }
+
+        .whatsapp-number:hover {
+            background-color: #e2f7e2;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-number i {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+
+        .whatsapp-number span {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .exchange-rate {
+            background-color: rgba(26, 60, 39, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--primary-color);
+        }
+
+        /* Formulaire */
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--dark-color);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 60, 39, 0.1);
+        }
+
+        .form-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .form-submit:hover {
+            background-color: #2a5c3f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 13px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        /* Modal pour les images */
         .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 10px;
         }
 
         .modal-content {
+            max-width: 95%;
+            max-height: 95%;
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
         }
 
         .modal-image {
             width: 100%;
             height: auto;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
         }
 
         .modal-close {
             position: absolute;
-            top: -40px;
+            top: -35px;
             right: 0;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
             background: none;
             border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 5px;
-            transition: var(--transition);
         }
 
-        .modal-close:hover {
-            color: var(--secondary-color);
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .navbar {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 15px;
+                gap: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+            
+            .navbar.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .navbar li {
+                width: 100%;
+            }
+            
+            .navbar li a {
+                display: block;
+                padding: 12px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .whatsapp-header {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
         }
 
-        /* ===== LOADING ===== */
+        @media (min-width: 769px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                min-height: 40vh;
+                padding: 30px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 20px;
+            }
+            
+            .logo-text h1 {
+                font-size: 14px;
+            }
+            
+            .logo-text p {
+                font-size: 10px;
+            }
+            
+            .logo-container img {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        /* Support pour les iPhones */
+        @supports (padding: max(0px)) {
+            body, header, .hero, .products-section, .services, .contact, footer {
+                padding-left: max(15px, env(safe-area-inset-left));
+                padding-right: max(15px, env(safe-area-inset-right));
+            }
+            
+            .hero {
+                padding-top: max(40px, env(safe-area-inset-top));
+            }
+            
+            .whatsapp-float {
+                right: max(15px, env(safe-area-inset-right));
+                bottom: max(15px, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Animation de chargement */
         .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
+            text-align: center;
+            padding: 30px;
+            color: var(--gray-color);
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid var(--gray-light);
-            border-top: 4px solid var(--primary-color);
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            margin-bottom: 15px;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        /* ===== NOTIFICATIONS ===== */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            padding: 15px 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            z-index: 9999;
-            animation: slideIn 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .notification-success {
-            background: #28a745;
-            color: white;
-        }
-
-        .notification-error {
-            background: #dc3545;
-            color: white;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                flex-direction: column;
-                padding: 20px;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-                box-shadow: var(--shadow-md);
-                z-index: 999;
-            }
-            
-            .nav.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
-            }
-            
-            .nav-link {
-                padding: 15px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .nav-link.active::after {
-                display: none;
-            }
-            
-            .header-actions {
-                display: none;
-            }
-            
-            .hero {
-                padding: 120px 0 60px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .section-padding {
-                padding: 60px 0;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 20px;
-            }
-            
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-            
-            .section-title {
-                font-size: 1.75rem;
-            }
-            
-            .product-card {
-                max-width: 100%;
-            }
-            
-            .contact-form {
-                padding: 30px 20px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .exchange-rate {
-                padding: 15px;
-            }
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* ===== ACCESSIBILITY ===== */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* ===== SAFE AREA SUPPORT ===== */
-        @supports (padding: max(0px)) {
-            body {
-                padding-left: env(safe-area-inset-left);
-                padding-right: env(safe-area-inset-right);
-            }
-            
-            .header {
-                padding-left: env(safe-area-inset-left);
-                padding-right: env(safe-area-inset-right);
-            }
-            
-            .whatsapp-float {
-                right: max(30px, env(safe-area-inset-right));
-                bottom: max(30px, env(safe-area-inset-bottom));
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
-
     <!-- Header -->
-    <header class="header">
-        <div class="container header-content">
-            <a href="#home" class="logo">
-                <img src="images/logo.png" alt="Zambia Market Logo" class="logo-img">
-                <div class="logo-text">
-                    <h1>ZAMBIA MARKET</h1>
-                    <p>Meubles de qualité supérieure</p>
-                </div>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu de navigation" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="nav" id="mainNav">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Accueil</a></li>
-                    <li><a href="#products" class="nav-link">Produits</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                
-                <div class="header-actions">
-                    <a href="https://wa.me/243971300107" class="whatsapp-btn-sm" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                        WhatsApp
-                    </a>
-                </div>
-            </nav>
+    <header>
+        <div class="logo-container">
+            <img src="Bg1.jpg" alt="Zambia Market Logo">
+            <div class="logo-text">
+                <h1>ZAMBIA MARKET</h1>
+                <p>Vente de meubles de qualité</p>
+            </div>
         </div>
+        
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="navbar" id="navbar">
+            <li><a href="#home" class="active">Accueil</a></li>
+            <li><a href="#products">Produits</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <a href="https://wa.me/243971300107" class="whatsapp-header" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
     </header>
 
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content animate-in">
-                    <h1>Transformez votre intérieur avec <span>Zambia Market</span></h1>
-                    <p>Découvrez notre collection exclusive de meubles haut de gamme. Livraison gratuite, paiement sécurisé à la réception, et service client disponible 24h/24.</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-whatsapp" id="whatsappCatalogBtn">
-                            <i class="fab fa-whatsapp"></i> Voir le catalogue
-                        </button>
-                        <button class="btn btn-secondary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
-                            <i class="fas fa-couch"></i> Découvrir les produits
-                        </button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>ZAMBIA MARKET <br> Meubles de qualité avec <span>livraison gratuite</span></h1>
+        <p>Découvrez notre collection exclusive de meubles. Qualité garantie, prix compétitifs et livraison à domicile avec paiement à la réception.</p>
+        <div class="hero-buttons">
+            <button class="btn btn-whatsapp" onclick="openWhatsApp('Bonjour, je voudrais voir votre catalogue complet de meubles')">
+                <i class="fab fa-whatsapp"></i> Voir catalogue
+            </button>
+            <button class="btn btn-catalog" onclick="scrollToProducts()">
+                <i class="fas fa-couch"></i> Voir produits
+            </button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <h2 class="section-title"><span>N</span>os Produits</h2>
+        <p class="section-subtitle">Cliquez sur "Prix sur WhatsApp" pour connaître le tarif exact de chaque produit</p>
+        
+        <div class="categories">
+            <button class="category-btn active" onclick="filterProducts('all')">Tous</button>
+            <button class="category-btn" onclick="filterProducts('salon')">Salon</button>
+            <button class="category-btn" onclick="filterProducts('chambre')">Chambre</button>
+            <button class="category-btn" onclick="filterProducts('salle-manger')">Salle à manger</button>
+            <button class="category-btn" onclick="filterProducts('bureau')">Bureau</button>
+        </div>
+        
+        <div class="products-grid" id="productsGrid">
+            <!-- Les produits seront chargés ici -->
+        </div>
+        
+        <div class="pagination" id="pagination">
+            <!-- La pagination sera générée ici -->
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title"><span>N</span>os Services</h2>
+        <p class="section-subtitle">Nous offrons des services complets pour votre satisfaction totale</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Livraison Gratuite</h3>
+                <p>Livraison à domicile dans toute la ville. Notre chauffeur vous contacte pour fixer le rendez-vous.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Paiement à la Livraison</h3>
+                <p>Payez uniquement après avoir reçu et vérifié vos meubles. Paiement sécurisé au chauffeur.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Support WhatsApp</h3>
+                <p>Notre équipe est disponible sur WhatsApp pour toutes vos questions et commandes.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h3>Taux Fixe</h3>
+                <p>Taux de change fixe: 1$ = 2,200 FC. Prix stables et prévisibles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title"><span>C</span>ontactez-nous</h2>
+        <p class="section-subtitle">Commandez facilement en suivant ces étapes simples</p>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Comment commander ?</h3>
+                
+                <div class="contact-steps">
+                    <div class="contact-step">
+                        <div class="step-number">1</div>
+                        <div>Parcourez notre catalogue et sélectionnez les meubles</div>
                     </div>
+                    <div class="contact-step">
+                        <div class="step-number">2</div>
+                        <div>Cliquez sur "Prix sur WhatsApp" sous chaque produit</div>
+                    </div>
+                    <div class="contact-step">
+                        <div class="step-number">3</div>
+                        <div>Envoyez-nous votre adresse de livraison via WhatsApp</div>
+                    </div>
+                    <div class="contact-step">
+                        <div class="step-number">4</div>
+                        <div>Payez à la réception après vérification des meubles</div>
+                    </div>
+                </div>
+                
+                <h3>Nos numéros WhatsApp</h3>
+                <div class="contact-numbers">
+                    <a href="https://wa.me/243971300107" class="whatsapp-number" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+243 971 300 107</span>
+                    </a>
+                    <a href="https://wa.me/243890262391" class="whatsapp-number" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+243 890 262 391</span>
+                    </a>
+                    <a href="https://wa.me/260967160781" class="whatsapp-number" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+260 967 160 781</span>
+                    </a>
+                </div>
+                
+                <div class="exchange-rate">
+                    <strong>Taux de change officiel:</strong><br>
+                    1$ US = 2,200 FC (Francs Congolais)
                 </div>
             </div>
-        </section>
-
-        <!-- Products Section -->
-        <section class="products-section section-padding" id="products">
-            <div class="container">
-                <h2 class="section-title text-center">Nos <span>Produits</span> Phares</h2>
-                <p class="section-subtitle text-center">Plus de 100 modèles exclusifs. Cliquez sur "Demander le prix" pour obtenir une offre personnalisée.</p>
-
-                <div class="categories-filter">
-                    <button class="category-btn active" data-category="all">Tous les produits</button>
-                    <button class="category-btn" data-category="salon">Salon</button>
-                    <button class="category-btn" data-category="chambre">Chambre</button>
-                    <button class="category-btn" data-category="salle-manger">Salle à manger</button>
-                    <button class="category-btn" data-category="bureau">Bureau</button>
-                    <button class="category-btn" data-category="cuisine">Cuisine</button>
-                </div>
-
-                <div class="products-grid" id="productsGrid">
-                    <!-- Produits chargés dynamiquement -->
-                </div>
-
-                <div class="pagination" id="pagination">
-                    <!-- Pagination générée dynamiquement -->
-                </div>
+            
+            <div class="contact-form">
+                <h3>Demande rapide</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro WhatsApp *</label>
+                        <input type="tel" id="phone" placeholder="Votre numéro WhatsApp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" placeholder="Décrivez les meubles qui vous intéressent..." rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
+                    </button>
+                </form>
             </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services-section section-padding" id="services">
-            <div class="container">
-                <h2 class="section-title text-center">Pourquoi <span>Nous Choisir</span> ?</h2>
-                <p class="section-subtitle text-center">Nous nous engageons à vous offrir la meilleure expérience d'achat</p>
-
-                <div class="services-grid">
-                    <div class="service-card animate-in">
-                        <div class="service-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <h3>Livraison Express</h3>
-                        <p>Livraison gratuite dans toute la ville sous 48h. Suivi en temps réel de votre commande.</p>
-                    </div>
-
-                    <div class="service-card animate-in">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Paiement Sécurisé</h3>
-                        <p>Payez uniquement après inspection. Paiement en espèces ou mobile money accepté.</p>
-                    </div>
-
-                    <div class="service-card animate-in">
-                        <div class="service-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>Support 24/7</h3>
-                        <p>Notre équipe est disponible sur WhatsApp pour répondre à toutes vos questions.</p>
-                    </div>
-
-                    <div class="service-card animate-in">
-                        <div class="service-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3>Garantie Qualité</h3>
-                        <p>Tous nos produits sont garantis 1 an. Matériaux de haute qualité vérifiés.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact section-padding" id="contact">
-            <div class="container">
-                <h2 class="section-title text-center">Contact <span>Facile</span></h2>
-                <p class="section-subtitle text-center">Commandez vos meubles en 4 étapes simples</p>
-
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Le processus de commande</h3>
-                        
-                        <div class="contact-steps">
-                            <div class="contact-step">
-                                <div class="step-number">1</div>
-                                <div>Parcourez notre catalogue et sélectionnez vos meubles préférés</div>
-                            </div>
-                            <div class="contact-step">
-                                <div class="step-number">2</div>
-                                <div>Contactez-nous sur WhatsApp avec les références des produits</div>
-                            </div>
-                            <div class="contact-step">
-                                <div class="step-number">3</div>
-                                <div>Recevez votre devis personnalisé et confirmez votre adresse</div>
-                            </div>
-                            <div class="contact-step">
-                                <div class="step-number">4</div>
-                                <div>Livraison et paiement à la réception après vérification</div>
-                            </div>
-                        </div>
-
-                        <h3>Contact direct WhatsApp</h3>
-                        <div class="contact-numbers">
-                            <a href="https://wa.me/243971300107" class="whatsapp-number" target="_blank" rel="noopener noreferrer" id="whatsappPrimary">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>+243 971 300 107 (Principal)</span>
-                            </a>
-                            <a href="https://wa.me/243890262391" class="whatsapp-number" target="_blank" rel="noopener noreferrer" id="whatsappSales">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>+243 890 262 391 (Ventes)</span>
-                            </a>
-                            <a href="https://wa.me/260967160781" class="whatsapp-number" target="_blank" rel="noopener noreferrer" id="whatsappSupport">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>+260 967 160 781 (Support)</span>
-                            </a>
-                        </div>
-
-                        <div class="exchange-rate">
-                            <strong>Taux de change officiel</strong>
-                            <div>1 USD = 2,200 FC (Francs Congolais)</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <h3>Demande de renseignements</h3>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Nom complet *</label>
-                                <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" class="form-label">Numéro WhatsApp *</label>
-                                <input type="tel" id="phone" class="form-control" placeholder="Votre numéro WhatsApp" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="interest" class="form-label">Type de meuble recherché *</label>
-                                <select id="interest" class="form-control" required>
-                                    <option value="">Sélectionnez...</option>
-                                    <option value="salon">Meubles de salon</option>
-                                    <option value="chambre">Meubles de chambre</option>
-                                    <option value="salle-manger">Salle à manger</option>
-                                    <option value="bureau">Meubles de bureau</option>
-                                    <option value="cuisine">Meubles de cuisine</option>
-                                    <option value="autre">Autre</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="form-label">Message additionnel</label>
-                                <textarea id="message" class="form-control" placeholder="Décrivez vos besoins spécifiques..." rows="4"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
-                                <i class="fab fa-whatsapp"></i> Envoyer à toute l'équipe WhatsApp
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>ZAMBIA MARKET</h3>
-                    <div class="footer-about">
-                        <p>Spécialiste en meubles de qualité depuis 2020. Nous combinons design moderne, durabilité et prix compétitifs pour transformer vos espaces de vie.</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://wa.me/243971300107" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Catégories</h3>
-                    <ul>
-                        <li><a href="#" onclick="filterProducts('salon'); return false;"><i class="fas fa-caret-right"></i> Meubles de salon</a></li>
-                        <li><a href="#" onclick="filterProducts('chambre'); return false;"><i class="fas fa-caret-right"></i> Chambres à coucher</a></li>
-                        <li><a href="#" onclick="filterProducts('salle-manger'); return false;"><i class="fas fa-caret-right"></i> Salles à manger</a></li>
-                        <li><a href="#" onclick="filterProducts('bureau'); return false;"><i class="fas fa-caret-right"></i> Meubles de bureau</a></li>
-                        <li><a href="#" onclick="filterProducts('cuisine'); return false;"><i class="fas fa-caret-right"></i> Cuisines équipées</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Informations</h3>
-                    <ul>
-                        <li><a href="#home"><i class="fas fa-caret-right"></i> Accueil</a></li>
-                        <li><a href="#products"><i class="fas fa-caret-right"></i> Produits</a></li>
-                        <li><a href="#services"><i class="fas fa-caret-right"></i> Services</a></li>
-                        <li><a href="#contact"><i class="fas fa-caret-right"></i> Contact</a></li>
-                        <li><a href="#" id="deliveryConditions"><i class="fas fa-caret-right"></i> Conditions de livraison</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class="fab fa-whatsapp"></i> +243 971 300 107</li>
-                        <li><i class="fab fa-whatsapp"></i> +243 890 262 391</li>
-                        <li><i class="fab fa-whatsapp"></i> +260 967 160 781</li>
-                        <li><i class="fas fa-clock"></i> 24h/24, 7j/7 sur WhatsApp</li>
-                    </ul>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>ZAMBIA MARKET</h3>
+                <p>Spécialistes en vente de meubles de qualité pour toute la maison. Livraison à domicile avec paiement à la réception.</p>
+                <div class="exchange-rate">
+                    <p><strong>Taux de change:</strong><br>1$ US = 2,200 FC</p>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Zambia Market. Tous droits réservés.</p>
+            
+            <div class="footer-column">
+                <h3>Catégories</h3>
+                <ul>
+                    <li><a href="#" onclick="filterProducts('salon'); return false;">Meubles de salon</a></li>
+                    <li><a href="#" onclick="filterProducts('chambre'); return false;">Meubles de chambre</a></li>
+                    <li><a href="#" onclick="filterProducts('salle-manger'); return false;">Meubles salle à manger</a></li>
+                    <li><a href="#" onclick="filterProducts('bureau'); return false;">Meubles de bureau</a></li>
+                </ul>
             </div>
+            
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#products">Produits</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fab fa-whatsapp"></i> +243 971 300 107</li>
+                    <li><i class="fab fa-whatsapp"></i> +243 890 262 391</li>
+                    <li><i class="fab fa-whatsapp"></i> +260 967 160 781</li>
+                    <li><i class="fas fa-clock"></i> Disponible 24h/24</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; <span id="currentYear">2023</span> Zambia Market. Tous droits réservés.</p>
         </div>
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="#" class="whatsapp-float" aria-label="Contactez-nous sur WhatsApp" id="whatsappFloatBtn">
+    <a href="https://wa.me/243971300107" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Image Modal -->
-    <div class="modal" id="imageModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal" id="imageModal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()" aria-label="Fermer">
-                &times;
-            </button>
-            <img class="modal-image" id="modalImage" src="" alt="">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img class="modal-image" id="modalImage" src="" alt="Produit">
         </div>
     </div>
 
     <script>
-        // ===== CONFIGURATION =====
-        const CONFIG = {
-            // VOS NUMÉROS WHATSAPP (à modifier selon vos besoins)
-            whatsappNumbers: [
-                { number: '243971300107', label: 'Principal', default: true },
-                { number: '243890262391', label: 'Ventes', default: false },
-                { number: '260967160781', label: 'Support', default: false }
-            ],
-            exchangeRate: 2200,
-            productsPerPage: 12
-        };
+        // Données des produits
+        const productsData = [];
+        const categories = ['salon', 'chambre', 'salle-manger', 'bureau'];
+        const descriptions = [
+            "Canapé moderne avec tissu haute qualité, design confortable",
+            "Table à manger extensible, idéale pour famille nombreuse",
+            "Lit double avec tête de lit rembourrée, sommier à lattes",
+            "Armoire spacieuse avec portes coulissantes, miroir intégré",
+            "Bureau ergonomique avec rangements et prise USB",
+            "Chaise design pour salle à manger, assise rembourrée",
+            "Meuble TV avec étagères et rangements fermés",
+            "Commode 5 tiroirs en bois massif, poignées chromées",
+            "Bibliothèque modulable, adaptée à tous les espaces",
+            "Table basse en verre trempé, design contemporain"
+        ];
 
-        // ===== FONCTION POUR GÉNÉRER LES NOMS DE FICHIERS D'IMAGES =====
-        function getProductImageName(productId) {
-            // Basé sur votre structure d'images : T1-1(1), T1-1(2), etc.
-            // Supposons que vous avez 40 images par collection
-            const imagesPerCollection = 40;
-            const collectionNum = Math.ceil(productId / imagesPerCollection);
-            const imageNum = ((productId - 1) % imagesPerCollection) + 1;
-            
-            return `T${collectionNum}-1(${imageNum}).png`;
-        }
-
-        // ===== DONNÉES DES PRODUITS (simulées) =====
-        const PRODUCTS = Array.from({ length: 100 }, (_, i) => {
-            const categories = ['salon', 'chambre', 'salle-manger', 'bureau', 'cuisine'];
-            const descriptions = [
-                "Canapé design en tissu premium avec accoudoirs rembourrés",
-                "Table à manger extensible en bois massif pour 6 à 10 personnes",
-                "Lit double avec tête de lit capitonnée et rangements intégrés",
-                "Armoire 3 portes avec miroir et éclairage LED intégré",
-                "Bureau ergonomique ajustable avec tablette pour ordinateur",
-                "Ensemble salon complet canapé 3 places + 2 fauteuils",
-                "Commode 6 tiroirs avec poignées chromées",
-                "Bibliothèque modulable sur mesure avec éclairage",
-                "Table basse en verre trempé avec plateau en marbre",
-                "Fauteuil relax inclinable avec repose-pieds intégré"
-            ];
-            
+        // Générer 100 produits pour la démo
+        for (let i = 1; i <= 100; i++) {
             const category = categories[Math.floor(Math.random() * categories.length)];
+            const description = descriptions[Math.floor(Math.random() * descriptions.length)];
             
-            return {
-                id: i + 1,
-                name: `Meuble ${getCategoryLabel(category)} Premium ${i + 1}`,
+            // Générer un nom de fichier d'image
+            let imageFile;
+            if (i <= 40) {
+                imageFile = `T-1 (${i}).png`;
+            } else if (i <= 80) {
+                imageFile = `T-1 (${i-40}).png`; // Pour la démo, on réutilise
+            } else {
+                imageFile = `T-1 (${i-80}).png`; // Pour la démo
+            }
+
+            productsData.push({
+                id: i,
+                name: `Meuble ${getCategoryName(category)} ${i}`,
                 category: category,
-                description: descriptions[Math.floor(Math.random() * descriptions.length)],
-                image: getProductImageName(i + 1), // Utilise la nouvelle fonction
-                code: `ZM-${String(i + 1).padStart(4, '0')}`,
-                featured: i < 8
-            };
-        });
-
-        function getCategoryLabel(category) {
-            const labels = {
-                'salon': 'Salon',
-                'chambre': 'Chambre',
-                'salle-manger': 'Salle à Manger',
-                'bureau': 'Bureau',
-                'cuisine': 'Cuisine'
-            };
-            return labels[category] || 'Décoration';
-        }
-
-        // ===== ÉTAT DE L'APPLICATION =====
-        const AppState = {
-            currentPage: 1,
-            currentCategory: 'all',
-            filteredProducts: [...PRODUCTS]
-        };
-
-        // ===== FONCTIONNALITÉ WHATSAPP - ENVOI À TOUS LES NUMÉROS =====
-        function sendToAllWhatsAppNumbers(message) {
-            // WhatsApp ne permet pas d'envoyer un message à plusieurs numéros simultanément via un seul lien
-            // On va donc ouvrir plusieurs fenêtres/popups pour chaque numéro
-            
-            const messageEncoded = encodeURIComponent(message);
-            
-            // Créer une popup d'information
-            const popup = window.open('', 'WhatsAppInfo', 'width=500,height=400,scrollbars=yes');
-            popup.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Envoyer à l'équipe Zambia Market</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-                        .whatsapp-number { 
-                            background: #f0f9f0; 
-                            padding: 15px; 
-                            margin: 10px 0; 
-                            border-radius: 8px; 
-                            border: 1px solid #25D366;
-                            cursor: pointer;
-                            transition: background 0.3s;
-                        }
-                        .whatsapp-number:hover { background: #e2f7e2; }
-                        .btn { 
-                            background: #25D366; 
-                            color: white; 
-                            padding: 10px 20px; 
-                            border: none; 
-                            border-radius: 5px; 
-                            cursor: pointer; 
-                            margin: 5px; 
-                        }
-                        .btn-all { background: #1a472a; }
-                    </style>
-                </head>
-                <body>
-                    <h2>Envoyer à l'équipe Zambia Market</h2>
-                    <p>Votre message a été préparé. Cliquez sur les boutons ci-dessous pour l'envoyer à chaque membre de notre équipe :</p>
-                    <div id="whatsappButtons">
-                        ${CONFIG.whatsappNumbers.map(num => `
-                            <div class="whatsapp-number" onclick="window.open('https://wa.me/${num.number}?text=${messageEncoded}', '_blank')">
-                                <strong>${num.label}</strong><br>
-                                +${num.number}<br>
-                                <button class="btn">Envoyer à ${num.label}</button>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <p style="margin-top: 20px;"><strong>Conseil :</strong> Vous pouvez également créer un groupe WhatsApp avec tous ces numéros pour une communication plus efficace.</p>
-                    <button class="btn btn-all" onclick="window.close()">Fermer cette fenêtre</button>
-                </body>
-                </html>
-            `);
-            popup.document.close();
-        }
-
-        function sendToWhatsAppGroup(message) {
-            // Alternative: Créer un lien pour créer un groupe WhatsApp avec tous les numéros
-            const numbers = CONFIG.whatsappNumbers.map(num => num.number).join(',');
-            const messageEncoded = encodeURIComponent(message);
-            
-            // WhatsApp ne permet pas de créer un groupe directement via un lien
-            // On va donc ouvrir WhatsApp avec le premier numéro et suggérer d'ajouter les autres
-            window.open(`https://wa.me/${CONFIG.whatsappNumbers[0].number}?text=${messageEncoded}`, '_blank');
-            
-            // Afficher une instruction pour ajouter les autres membres
-            setTimeout(() => {
-                showNotification(
-                    'Message envoyé au premier contact. Pour envoyer à toute l\'équipe, créez un groupe WhatsApp avec tous nos numéros.',
-                    'success'
-                );
-            }, 1000);
-        }
-
-        // ===== FONCTIONNALITÉ DE SUPPRESSION D'IMAGES =====
-        function initializeImageDeletion() {
-            document.querySelectorAll('.product-image').forEach(container => {
-                // Vérifier si le bouton de suppression existe déjà
-                if (container.querySelector('.image-delete-btn')) return;
-                
-                // Créer le bouton de suppression
-                const deleteBtn = document.createElement('button');
-                deleteBtn.innerHTML = '×';
-                deleteBtn.className = 'image-delete-btn';
-                deleteBtn.setAttribute('aria-label', 'Supprimer cette image');
-                deleteBtn.setAttribute('title', 'Supprimer cette image');
-                
-                // Ajouter l'événement de clic
-                deleteBtn.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Empêcher l'ouverture du modal
-                    
-                    const productCard = container.closest('.product-card');
-                    const productName = productCard.querySelector('.product-name').textContent;
-                    
-                    if (confirm(`Voulez-vous vraiment supprimer l'image du produit "${productName}" ?`)) {
-                        // Supprimer l'image (frontend uniquement)
-                        const img = container.querySelector('img');
-                        if (img) {
-                            // Remplacer par une image placeholder
-                            img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIHN1cHByaW3DqWU8L3RleHQ+PC9zdmc+';
-                            img.alt = 'Image supprimée';
-                        }
-                        
-                        // Supprimer le bouton de suppression
-                        this.remove();
-                        
-                        // Envoyer une notification
-                        showNotification(`L'image de "${productName}" a été supprimée.`, 'success');
-                        
-                        // Dans une application réelle, vous enverriez une requête au serveur ici
-                        // pour supprimer l'image de votre stockage
-                        console.log(`Image supprimée pour le produit: ${productName}`);
-                    }
-                });
-                
-                container.appendChild(deleteBtn);
+                description: description,
+                image: imageFile,
+                code: `ZM-${String(i).padStart(4, '0')}`
             });
         }
 
-        // ===== GESTION DU FORMULAIRE DE CONTACT =====
-        function handleContactFormSubmit(e) {
-            e.preventDefault();
-            
-            // Récupérer les valeurs du formulaire
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                interest: document.getElementById('interest').value,
-                message: document.getElementById('message').value
+        function getCategoryName(category) {
+            const names = {
+                'salon': 'Salon',
+                'chambre': 'Chambre',
+                'salle-manger': 'Salle à Manger',
+                'bureau': 'Bureau'
             };
-            
-            // Valider le formulaire
-            if (!formData.name || !formData.phone || !formData.interest) {
-                showNotification('Veuillez remplir tous les champs obligatoires (*).', 'error');
-                return;
-            }
-            
-            // Créer le message WhatsApp formaté
-            const whatsappMessage = 
-                `*Nouvelle demande - Zambia Market*\n\n` +
-                `👤 *Nom:* ${formData.name}\n` +
-                `📱 *Téléphone:* ${formData.phone}\n` +
-                `🛋️ *Intérêt:* ${getCategoryLabel(formData.interest) || formData.interest}\n\n` +
-                `💬 *Message:*\n${formData.message || 'Aucun message additionnel'}\n\n` +
-                `🌐 *Envoyé depuis le site web*`;
-            
-            // Demander comment envoyer le message
-            const sendMethod = confirm(
-                `Envoyer la demande à toute l'équipe Zambia Market?\n\n` +
-                `Cliquez sur "OK" pour ouvrir une fenêtre avec tous nos numéros WhatsApp.\n` +
-                `Cliquez sur "Annuler" pour envoyer uniquement au contact principal.`
-            );
-            
-            if (sendMethod) {
-                // Envoyer à tous les numéros (ouvre une popup avec tous les contacts)
-                sendToAllWhatsAppNumbers(whatsappMessage);
-            } else {
-                // Envoyer uniquement au numéro principal
-                const primaryNumber = CONFIG.whatsappNumbers.find(num => num.default) || CONFIG.whatsappNumbers[0];
-                window.open(`https://wa.me/${primaryNumber.number}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-            }
-            
-            // Réinitialiser le formulaire
-            e.target.reset();
-            
-            // Afficher une confirmation
-            showNotification('Votre message a été préparé pour WhatsApp !', 'success');
+            return names[category] || 'Décoration';
         }
 
-        // ===== FONCTIONS DE RENDU =====
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            const startIdx = (AppState.currentPage - 1) * CONFIG.productsPerPage;
-            const endIdx = startIdx + CONFIG.productsPerPage;
-            const productsToShow = AppState.filteredProducts.slice(startIdx, endIdx);
+        // Variables globales
+        let currentPage = 1;
+        const productsPerPage = 12;
+        let currentCategory = 'all';
+        let filteredProducts = [...productsData];
 
+        // Fonction pour afficher les produits
+        function renderProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = startIndex + productsPerPage;
+            const productsToShow = filteredProducts.slice(startIndex, endIndex);
+            
             if (productsToShow.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
-                        <i class="fas fa-couch" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
-                        <h3 style="color: #666; margin-bottom: 15px;">Aucun produit trouvé</h3>
-                        <p style="color: #888;">Essayez une autre catégorie ou contactez-nous pour une demande spéciale.</p>
-                        <button class="btn btn-primary" onclick="openWhatsApp('Bonjour, je cherche un meuble spécifique')" style="margin-top: 20px;">
-                            <i class="fab fa-whatsapp"></i> Demander un produit
-                        </button>
+                productsGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-search" style="font-size: 40px; margin-bottom: 15px;"></i>
+                        <p>Aucun produit trouvé dans cette catégorie.</p>
                     </div>
                 `;
                 return;
             }
-
-            grid.innerHTML = productsToShow.map(product => `
-                <div class="product-card animate-in">
-                    ${product.featured ? '<span class="product-badge">Populaire</span>' : ''}
-                    <div class="product-image" onclick="openImageModal('images/${product.image}', '${product.name}')">
-                        <img src="images/${product.image}" alt="${product.name}" loading="lazy" 
-                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk1ldWJsZSAkIXByb2R1Y3QubmFtZX0kPC90ZXh0Pjwvc3Zn+';">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">${product.name}</h3>
-                        <span class="product-code">Réf: ${product.code}</span>
-                        <p class="product-description">${product.description}</p>
-                        <div class="product-meta">
-                            <span class="product-category">${getCategoryLabel(product.category)}</span>
-                            <button class="btn btn-whatsapp" onclick="inquireAboutProduct(${product.id})" style="padding: 8px 16px; font-size: 0.875rem;">
-                                <i class="fab fa-whatsapp"></i> Demander le prix
+            
+            let productsHTML = '';
+            productsToShow.forEach(product => {
+                productsHTML += `
+                    <div class="product-card">
+                        <div class="product-image" onclick="openImageModal('${product.image}', '${product.name}')">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy" 
+                                 onerror="this.src='Bg2.png'; this.alt='Image non disponible'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <div class="product-code">Code: ${product.code}</div>
+                            <p class="product-description">${product.description}</p>
+                            <button class="whatsapp-price-btn" onclick="getPriceOnWhatsApp(${product.id})">
+                                <i class="fab fa-whatsapp"></i> Prix sur WhatsApp
                             </button>
                         </div>
                     </div>
-                </div>
-            `).join('');
-
+                `;
+            });
+            
+            productsGrid.innerHTML = productsHTML;
             renderPagination();
-            initializeImageDeletion(); // Initialiser la suppression d'images
         }
 
+        // Fonction pour la pagination
         function renderPagination() {
             const pagination = document.getElementById('pagination');
-            const totalPages = Math.ceil(AppState.filteredProducts.length / CONFIG.productsPerPage);
+            const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
             
             if (totalPages <= 1) {
                 pagination.innerHTML = '';
                 return;
             }
-
+            
             let paginationHTML = '';
+            
+            // Bouton précédent
+            if (currentPage > 1) {
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage - 1})">
+                    <i class="fas fa-chevron-left"></i>
+                </button>`;
+            }
+            
+            // Pages
             const maxVisiblePages = 5;
-            let startPage = Math.max(1, AppState.currentPage - Math.floor(maxVisiblePages / 2));
+            let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
+            
             if (endPage - startPage + 1 < maxVisiblePages) {
                 startPage = Math.max(1, endPage - maxVisiblePages + 1);
             }
-
-            // Bouton précédent
-            if (AppState.currentPage > 1) {
-                paginationHTML += `
-                    <button class="page-btn" onclick="changePage(${AppState.currentPage - 1})" aria-label="Page précédente">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>`;
-            }
-
-            // Première page
-            if (startPage > 1) {
-                paginationHTML += `<button class="page-btn" onclick="changePage(1)">1</button>`;
-                if (startPage > 2) paginationHTML += `<span class="page-dots">...</span>`;
-            }
-
-            // Pages
+            
             for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `
-                    <button class="page-btn ${i === AppState.currentPage ? 'active' : ''}" onclick="changePage(${i})">
-                        ${i}
-                    </button>`;
+                paginationHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             }
-
-            // Dernière page
-            if (endPage < totalPages) {
-                if (endPage < totalPages - 1) paginationHTML += `<span class="page-dots">...</span>`;
-                paginationHTML += `<button class="page-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
-            }
-
+            
             // Bouton suivant
-            if (AppState.currentPage < totalPages) {
-                paginationHTML += `
-                    <button class="page-btn" onclick="changePage(${AppState.currentPage + 1})" aria-label="Page suivante">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>`;
+            if (currentPage < totalPages) {
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage + 1})">
+                    <i class="fas fa-chevron-right"></i>
+                </button>`;
             }
-
-            // Info sur le nombre de produits
-            paginationHTML += `
-                <div style="color: var(--gray-color); font-size: 0.875rem; margin-left: 15px;">
-                    ${AppState.filteredProducts.length} produits
-                </div>
-            `;
-
+            
             pagination.innerHTML = paginationHTML;
         }
 
-        // ===== FONCTIONS DE LOGIQUE =====
-        function filterProducts(category) {
-            AppState.currentCategory = category;
-            AppState.currentPage = 1;
-
-            // Mettre à jour les boutons actifs
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.category === category);
-            });
-
-            // Filtrer les produits
-            if (category === 'all') {
-                AppState.filteredProducts = [...PRODUCTS];
-            } else {
-                AppState.filteredProducts = PRODUCTS.filter(p => p.category === category);
-            }
-
-            renderProducts();
-            scrollToProducts();
-        }
-
+        // Fonction pour changer de page
         function changePage(page) {
-            AppState.currentPage = page;
+            currentPage = page;
             renderProducts();
-            scrollToProducts();
+            window.scrollTo({ top: document.getElementById('products').offsetTop - 70, behavior: 'smooth' });
         }
 
-        function inquireAboutProduct(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
+        // Fonction pour filtrer les produits
+        function filterProducts(category) {
+            currentCategory = category;
+            currentPage = 1;
+            
+            // Mettre à jour les boutons de catégorie
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            if (category === 'all') {
+                filteredProducts = [...productsData];
+            } else {
+                filteredProducts = productsData.filter(product => product.category === category);
+            }
+            
+            renderProducts();
+        }
 
+        // Fonction pour ouvrir WhatsApp avec un produit
+        function getPriceOnWhatsApp(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+            
             const message = encodeURIComponent(
                 `Bonjour Zambia Market,\n\nJe suis intéressé par ce produit:\n\n` +
-                `🏷️ *${product.name}*\n` +
-                `📋 Référence: ${product.code}\n` +
-                `📝 Description: ${product.description}\n\n` +
-                `Pourriez-vous m'envoyer:\n` +
-                `• Le prix en USD et en FC (taux: 1$ = ${CONFIG.exchangeRate} FC)\n` +
-                `• Les dimensions exactes\n` +
-                `• Les couleurs disponibles\n` +
-                `• Le délai de livraison estimé\n\n` +
-                `Merci beaucoup !`
+                `📦 *${product.name}*\n` +
+                `📝 Code: ${product.code}\n` +
+                `📋 Description: ${product.description}\n\n` +
+                `Pouvez-vous m'envoyer le prix en dollars et en francs congolais?\n` +
+                `(Taux: 1$ = 2,200 FC)\n\n` +
+                `Merci!`
             );
-
-            // Utiliser la fonction d'envoi à tous les numéros
-            sendToAllWhatsAppNumbers(decodeURIComponent(message));
+            
+            window.open(`https://wa.me/243971300107?text=${message}`, '_blank');
+            
+            // Enregistrer dans l'historique
+            saveToHistory(product);
         }
 
-        function openWhatsApp(message = '') {
-            const defaultMessage = message || 
-                "Bonjour Zambia Market, je voudrais voir votre catalogue complet de meubles et connaître vos prix.";
-            sendToAllWhatsAppNumbers(defaultMessage);
+        // Fonction pour ouvrir WhatsApp général
+        function openWhatsApp(prefilledMessage = '') {
+            const message = encodeURIComponent(
+                prefilledMessage || 
+                "Bonjour Zambia Market, je voudrais voir votre catalogue complet de meubles."
+            );
+            window.open(`https://wa.me/243971300107?text=${message}`, '_blank');
         }
 
-        // ===== GESTION DES IMAGES =====
-        function openImageModal(imageSrc, altText) {
+        // Fonction pour sauvegarder dans l'historique
+        function saveToHistory(product) {
+            let history = JSON.parse(localStorage.getItem('zambiaHistory') || '[]');
+            history.unshift({
+                product: product,
+                date: new Date().toISOString()
+            });
+            
+            // Garder seulement les 20 derniers
+            if (history.length > 20) {
+                history = history.slice(0, 20);
+            }
+            
+            localStorage.setItem('zambiaHistory', JSON.stringify(history));
+        }
+
+        // Fonction pour ouvrir l'image en grand
+        function openImageModal(imageSrc, productName) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             
             modalImage.src = imageSrc;
-            modalImage.alt = altText;
+            modalImage.alt = productName;
             modal.style.display = 'flex';
-            modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
         }
 
+        // Fonction pour fermer le modal
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
-            modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
         }
 
-        // ===== UTILITAIRES =====
-        function showNotification(message, type = 'success') {
-            // Supprimer les notifications existantes
-            document.querySelectorAll('.notification').forEach(n => n.remove());
-            
-            // Créer la notification
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                <span>${message}</span>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Supprimer automatiquement après 5 secondes
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease forwards';
-                setTimeout(() => notification.remove(), 300);
-            }, 5000);
-        }
-
+        // Fonction pour scroller vers les produits
         function scrollToProducts() {
-            const productsSection = document.getElementById('products');
-            if (productsSection) {
-                productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // ===== INITIALISATION =====
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Gestion du formulaire
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = encodeURIComponent(
+                `*Demande de contact - Zambia Market*\n\n` +
+                `👤 Nom: ${name}\n` +
+                `📱 Téléphone: ${phone}\n\n` +
+                `📝 Message:\n${message}`
+            );
+            
+            window.open(`https://wa.me/243971300107?text=${whatsappMessage}`, '_blank');
+            
+            this.reset();
+            alert('Vous allez être redirigé vers WhatsApp.');
+        });
+
+        // Initialisation
         document.addEventListener('DOMContentLoaded', function() {
-            // Mettre à jour l'année
+            // Mettre à jour l'année du copyright
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Initialiser le menu mobile
-            const menuToggle = document.getElementById('menuToggle');
-            const nav = document.getElementById('mainNav');
+            // Afficher les produits
+            renderProducts();
             
-            menuToggle.addEventListener('click', () => {
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-                nav.classList.toggle('active');
-            });
-
-            // Initialiser les filtres de catégories
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const category = e.target.dataset.category;
-                    filterProducts(category);
-                });
-            });
-
-            // Initialiser le formulaire de contact
-            document.getElementById('contactForm').addEventListener('submit', handleContactFormSubmit);
-
-            // Initialiser les boutons WhatsApp
-            document.getElementById('whatsappCatalogBtn').addEventListener('click', () => {
-                openWhatsApp('Bonjour, je voudrais voir votre catalogue complet de meubles');
-            });
-
-            document.getElementById('whatsappFloatBtn').addEventListener('click', (e) => {
-                e.preventDefault();
-                openWhatsApp('Bonjour, je souhaite obtenir des informations sur vos meubles');
-            });
-
             // Fermer le modal en cliquant à l'extérieur
             document.getElementById('imageModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeModal();
                 }
             });
-
-            // Gestion du scroll pour le header
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('.header');
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+            
+            // Fermer avec Échap
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
                 }
             });
-
-            // Rendre les produits
-            renderProducts();
+            
+            // Smooth scroll pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
         });
 
-        // ===== FONCTIONS GLOBALES =====
-        window.filterProducts = filterProducts;
-        window.changePage = changePage;
-        window.inquireAboutProduct = inquireAboutProduct;
-        window.openWhatsApp = openWhatsApp;
-        window.openImageModal = openImageModal;
-        window.closeModal = closeModal;
+        // Gestion du scroll pour le header
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                if (scrollTop > lastScrollTop) {
+                    // Scroll vers le bas - cacher
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scroll vers le haut - montrer
+                    header.style.transform = 'translateY(0)';
+                }
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
     </script>
 </body>
 </html>
