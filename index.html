@@ -3,212 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zambia Market - Vente de meubles de qualité avec livraison à domicile. Prix sur WhatsApp.">
     <title>Zambia Market - Vente de Meubles</title>
     <style>
-        /* RESET ET BASE */
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary-color: #1a3c27;
+            --secondary-color: #ffd700;
+            --whatsapp-color: #25D366;
+            --whatsapp-dark: #128C7E;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --border-color: #dee2e6;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 5px 20px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+        
+        /* ===== RESET & BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            padding-top: 70px;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
         }
         
-        /* HEADER */
-        .header {
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            outline: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title span {
+            color: var(--secondary-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* ===== HEADER ===== */
+        header {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #1a3c27 0%, #2d5c43 100%);
+            width: 100%;
+            background-color: var(--primary-color);
             color: white;
-            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            border-bottom: 3px solid #ffd700;
+            padding: 1rem 20px;
+            height: 70px;
         }
         
-        .logo-container {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
         
         .logo-img {
             width: 50px;
             height: 50px;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             object-fit: cover;
-            border: 2px solid #ffd700;
-            padding: 2px;
-            background: white;
+            border: 2px solid var(--secondary-color);
         }
         
         .logo-text h1 {
-            font-size: 22px;
-            color: #ffd700;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            line-height: 1.2;
         }
         
         .logo-text p {
-            font-size: 12px;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
         
-        .whatsapp-btn-header {
-            background: #25D366;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
             color: white;
-            padding: 10px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .whatsapp-header {
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
             border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
         }
         
-        .whatsapp-btn-header:hover {
-            background: #128C7E;
+        .whatsapp-header:hover {
+            background-color: var(--whatsapp-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
         
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(rgba(26, 60, 39, 0.95), rgba(26, 60, 39, 0.9)), 
-                        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(37, 211, 102, 0.1) 0%, transparent 50%);
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
             color: white;
-            padding: 60px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(rgba(26, 60, 39, 0.9), rgba(26, 60, 39, 0.9));
+            color: white;
+            padding: 150px 0 100px;
             text-align: center;
-            border-bottom: 5px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.05"><path fill="%23ffd700" d="M0,0H1200V800H0Z"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            line-height: 1.3;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
         
         .hero h1 span {
-            color: #ffd700;
-            text-decoration: underline;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .hero p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
         
         .btn {
-            padding: 14px 30px;
-            border: none;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            font-size: 16px;
             min-width: 200px;
         }
         
         .btn-whatsapp {
-            background: #25D366;
+            background-color: var(--whatsapp-color);
             color: white;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
         
         .btn-whatsapp:hover {
-            background: #128C7E;
+            background-color: var(--whatsapp-dark);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
         }
         
-        .btn-products {
-            background: #ffd700;
-            color: #1a3c27;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
         }
         
-        .btn-products:hover {
-            background: #ffed4e;
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
         }
         
-        /* PRODUITS SECTION */
+        /* ===== PRODUCTS SECTION ===== */
         .products-section {
-            padding: 60px 20px;
-            background: white;
+            background-color: white;
         }
         
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            color: #1a3c27;
-            margin-bottom: 10px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title span {
-            color: #ffd700;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #1a3c27, #ffd700, #1a3c27);
-            border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* FILTRES CATEGORIES */
         .categories {
             display: flex;
             gap: 10px;
             overflow-x: auto;
-            padding: 15px 0;
-            margin-bottom: 30px;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
             -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
         }
         
         .categories::-webkit-scrollbar {
@@ -221,245 +298,253 @@
         }
         
         .categories::-webkit-scrollbar-thumb {
-            background: #1a3c27;
+            background: var(--primary-color);
             border-radius: 10px;
         }
         
         .category-btn {
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light-color);
+            border: 1px solid var(--border-color);
             border-radius: 25px;
             font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
             white-space: nowrap;
+            transition: var(--transition);
             flex-shrink: 0;
         }
         
-        .category-btn.active,
-        .category-btn:hover {
-            background: #1a3c27;
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--primary-color);
             color: white;
-            border-color: #1a3c27;
-            transform: translateY(-2px);
+            border-color: var(--primary-color);
         }
         
-        /* GRILLE PRODUITS */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         
         .product-card {
-            background: white;
-            border-radius: 15px;
+            background-color: white;
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.4s;
-            border: 1px solid #eee;
-            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-lg);
         }
         
-        .product-image-container {
+        .product-image {
             width: 100%;
             height: 220px;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(45deg, #f5f5f5, #e9e9e9);
+            background-color: #f8f9fa;
         }
         
-        .product-image {
+        .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
         
-        .product-card:hover .product-image {
+        .product-card:hover .product-image img {
             transform: scale(1.05);
         }
         
-        .product-info {
-            padding: 20px;
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
         }
         
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a3c27;
-            margin-bottom: 8px;
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
             line-height: 1.3;
         }
         
         .product-code {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-bottom: 1rem;
             font-family: monospace;
-            background: #f8f9fa;
+            background-color: var(--light-color);
             padding: 3px 8px;
             border-radius: 4px;
             display: inline-block;
         }
         
         .product-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
             line-height: 1.5;
         }
         
-        .whatsapp-price-button {
-            background: linear-gradient(135deg, #25D366, #128C7E);
+        .whatsapp-price-btn {
+            background-color: var(--whatsapp-color);
             color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
             width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+            transition: var(--transition);
+            margin-top: auto;
         }
         
-        .whatsapp-price-button:hover {
-            background: linear-gradient(135deg, #128C7E, #25D366);
+        .whatsapp-price-btn:hover {
+            background-color: var(--whatsapp-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
         
-        /* PAGINATION */
+        /* ===== PAGINATION ===== */
         .pagination {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin-top: 40px;
+            margin-top: 3rem;
             flex-wrap: wrap;
         }
         
-        .page-button {
-            padding: 10px 18px;
-            border: 2px solid #e0e0e0;
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
+        .page-btn {
+            padding: 0.7rem 1.2rem;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
             font-weight: 500;
+            transition: var(--transition);
             min-width: 45px;
             text-align: center;
         }
         
-        .page-button:hover {
-            border-color: #1a3c27;
-            color: #1a3c27;
-            transform: translateY(-2px);
+        .page-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
         
-        .page-button.active {
-            background: #1a3c27;
+        .page-btn.active {
+            background-color: var(--primary-color);
             color: white;
-            border-color: #1a3c27;
+            border-color: var(--primary-color);
         }
         
-        /* SERVICES SECTION */
+        .page-info {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
         .services-section {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background-color: var(--light-color);
         }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 40px auto 0;
+            gap: 2rem;
         }
         
         .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
+            background-color: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-lg);
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-top: 4px solid #1a3c27;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            box-shadow: var(--shadow-lg);
         }
         
         .service-icon {
-            font-size: 40px;
-            color: #1a3c27;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #1a3c27, #2d5c43);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
         }
         
         .service-card h3 {
-            font-size: 20px;
-            color: #1a3c27;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
         
         .service-card p {
-            color: #666;
-            font-size: 15px;
+            color: var(--gray-color);
+            line-height: 1.6;
         }
         
-        /* CONTACT SECTION */
+        /* ===== CONTACT SECTION ===== */
         .contact-section {
-            padding: 60px 20px;
-            background: white;
+            background-color: white;
         }
         
         .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 3rem;
+            align-items: start;
         }
         
         .contact-info h3 {
-            font-size: 24px;
-            color: #1a3c27;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
         }
         
-        .steps-container {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 4px solid #ffd700;
+        .contact-steps {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
         }
         
-        .step {
+        .contact-step {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
         }
         
         .step-number {
-            background: #1a3c27;
+            background-color: var(--primary-color);
             color: white;
             width: 30px;
             height: 30px;
@@ -467,129 +552,139 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            font-weight: 600;
+            margin-right: 1rem;
             flex-shrink: 0;
-            font-weight: bold;
         }
         
         .whatsapp-numbers {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
         
-        .whatsapp-number-link {
+        .whatsapp-number {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: #f0f9f0;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-            border: 2px solid #d4edda;
+            gap: 1rem;
+            padding: 1.2rem;
+            background-color: #f0f9f0;
+            border-radius: var(--border-radius);
+            border: 1px solid #d4edda;
+            transition: var(--transition);
         }
         
-        .whatsapp-number-link:hover {
-            background: #e2f7e2;
-            transform: translateY(-3px);
-            border-color: #25D366;
+        .whatsapp-number:hover {
+            background-color: #e2f7e2;
+            transform: translateY(-2px);
         }
         
-        .whatsapp-number-link i {
-            color: #25D366;
-            font-size: 24px;
+        .whatsapp-number i {
+            color: var(--whatsapp-color);
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp-number span {
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
         .exchange-rate-box {
-            background: linear-gradient(135deg, #1a3c27, #2d5c43);
+            background: linear-gradient(135deg, var(--primary-color), #2d5c43);
             color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
             text-align: center;
         }
         
+        .exchange-rate-box strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exchange-rate-box .rate {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            color: var(--secondary-color);
+        }
+        
         .contact-form {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background-color: var(--light-color);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 500;
-            color: #1a3c27;
+            color: var(--dark-color);
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
         }
         
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #1a3c27;
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(26, 60, 39, 0.1);
         }
         
-        .submit-btn {
-            background: linear-gradient(135deg, #1a3c27, #2d5c43);
+        .form-submit-btn {
+            background-color: var(--primary-color);
             color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
             width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            transition: var(--transition);
         }
         
-        .submit-btn:hover {
-            background: linear-gradient(135deg, #2d5c43, #1a3c27);
+        .form-submit-btn:hover {
+            background-color: #2a5c3f;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(26, 60, 39, 0.3);
         }
         
-        /* FOOTER */
-        .footer {
-            background: linear-gradient(135deg, #1a3c27 0%, #0f2919 100%);
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2919 100%);
             color: white;
-            padding: 60px 20px 30px;
-            border-top: 5px solid #ffd700;
+            padding: 4rem 0 2rem;
         }
         
-        .footer-grid {
+        .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto 40px;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
         .footer-column h3 {
-            font-size: 20px;
-            color: #ffd700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            padding-bottom: 0.5rem;
             border-bottom: 2px solid rgba(255, 215, 0, 0.3);
         }
         
@@ -598,37 +693,36 @@
         }
         
         .footer-column ul li {
-            margin-bottom: 12px;
+            margin-bottom: 0.8rem;
         }
         
         .footer-column ul li a {
             color: #ddd;
-            text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
         .footer-column ul li a:hover {
-            color: #ffd700;
+            color: var(--secondary-color);
             transform: translateX(5px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
-            font-size: 14px;
+            font-size: 0.9rem;
         }
         
-        /* WHATSAPP FLOAT BUTTON */
+        /* ===== WHATSAPP FLOAT BUTTON ===== */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+            background-color: var(--whatsapp-color);
             color: white;
             width: 60px;
             height: 60px;
@@ -636,11 +730,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: all 0.3s;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
             animation: float 3s ease-in-out infinite;
         }
         
@@ -650,12 +743,12 @@
         }
         
         .whatsapp-float:hover {
-            background: linear-gradient(135deg, #128C7E, #25D366);
+            background-color: var(--whatsapp-dark);
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+            animation: none;
         }
         
-        /* MODAL IMAGE */
+        /* ===== IMAGE MODAL ===== */
         .image-modal {
             display: none;
             position: fixed;
@@ -663,7 +756,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -679,7 +772,7 @@
         .modal-image {
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             display: block;
         }
         
@@ -688,8 +781,7 @@
             top: -40px;
             right: 0;
             color: white;
-            font-size: 30px;
-            cursor: pointer;
+            font-size: 2rem;
             background: none;
             border: none;
             width: 40px;
@@ -697,24 +789,81 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
         
-        /* RESPONSIVE */
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding-top: 60px;
             }
             
-            .header {
-                padding: 12px 15px;
+            .header-container {
+                padding: 0.8rem 20px;
+                height: 60px;
             }
             
-            .logo-text h1 {
-                font-size: 18px;
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
             }
             
             .hero h1 {
-                font-size: 26px;
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .btn {
@@ -723,17 +872,12 @@
             
             .hero-buttons {
                 flex-direction: column;
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
+                align-items: center;
             }
             
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
             
             .whatsapp-float {
@@ -741,17 +885,17 @@
                 right: 20px;
                 width: 55px;
                 height: 55px;
-                font-size: 24px;
+                font-size: 1.5rem;
             }
         }
         
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 22px;
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
             }
             
             .section-title {
-                font-size: 26px;
+                font-size: 1.8rem;
             }
             
             .products-grid {
@@ -760,235 +904,266 @@
             
             .service-card,
             .contact-form {
-                padding: 20px;
+                padding: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
     </style>
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo-container">
-            <img src="logo" alt="Zambia Market" class="logo-img" 
-                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%231a3c27%22/><text x=%2250%25%22 y=%2250%25%22 dy=%22.3em%22 text-anchor=%22middle%22 fill=%22%23ffd700%22 font-size=%2230%22>ZM</text></svg>'">
-            <div class="logo-text">
-                <h1>ZAMBIA MARKET</h1>
-                <p>Vente de meubles de qualité</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo" alt="Zambia Market" class="logo-img"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiMxYTNjMjciLz48cGF0aCBkPSJNMTAgMTVMMjUgMzVMNDAgMTVINDBMMjUgNDBMMTAgMTVIMTVaIiBmaWxsPSIjZmZkNzAwIi8+PC9zdmc+'">
+                <div class="logo-text">
+                    <h1>ZAMBIA MARKET</h1>
+                    <p>Vente de meubles de qualité</p>
+                </div>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">Accueil</a></li>
+                    <li><a href="#products">Produits</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="https://wa.me/243971300107" class="whatsapp-header" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
-        <a href="https://wa.me/243971300107" class="whatsapp-btn-header" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>ZAMBIA MARKET <br> Meubles de qualité avec <span>livraison gratuite</span></h1>
-        <p>Découvrez notre collection exclusive de plus de 1000 modèles de meubles. Qualité garantie, prix compétitifs et livraison à domicile avec paiement à la réception.</p>
-        <div class="hero-buttons">
-            <button class="btn btn-whatsapp" onclick="openWhatsApp('Bonjour, je voudrais voir votre catalogue complet de meubles')">
-                <i class="fab fa-whatsapp"></i> Voir catalogue WhatsApp
-            </button>
-            <button class="btn btn-products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
-                <i class="fas fa-couch"></i> Explorer les produits
-            </button>
-        </div>
-    </section>
-
-    <!-- PRODUITS SECTION -->
-    <section class="products-section" id="products">
-        <h2 class="section-title"><span>N</span>os Produits</h2>
-        <p class="section-subtitle">Cliquez sur "Prix sur WhatsApp" pour connaître le tarif exact de chaque produit. Taux de change: 1$ = 2,200 FC</p>
-        
-        <div class="categories" id="categories">
-            <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
-            <button class="category-btn" onclick="filterProducts('salon')">Salon</button>
-            <button class="category-btn" onclick="filterProducts('chambre')">Chambre</button>
-            <button class="category-btn" onclick="filterProducts('cuisine')">Cuisine</button>
-            <button class="category-btn" onclick="filterProducts('salle-manger')">Salle à manger</button>
-            <button class="category-btn" onclick="filterProducts('bureau')">Bureau</button>
-            <button class="category-btn" onclick="filterProducts('exterieur')">Extérieur</button>
-        </div>
-        
-        <div class="products-grid" id="productsGrid">
-            <!-- Produits chargés dynamiquement -->
-        </div>
-        
-        <div class="pagination" id="pagination">
-            <!-- Pagination chargée dynamiquement -->
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services-section" id="services">
-        <h2 class="section-title"><span>N</span>os Services</h2>
-        <p class="section-subtitle">Nous offrons des services complets pour garantir votre satisfaction totale</p>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3>Livraison Gratuite</h3>
-                <p>Livraison à domicile dans toute la ville. Notre chauffeur vous contacte personnellement pour fixer le rendez-vous de livraison.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <h3>Paiement Sécurisé</h3>
-                <p>Payez uniquement après avoir reçu et vérifié vos meubles. Paiement 100% sécurisé directement au chauffeur à la livraison.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>Support WhatsApp 24/7</h3>
-                <p>Notre équipe est disponible sur WhatsApp 24h/24 et 7j/7 pour répondre à toutes vos questions et prendre vos commandes.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-exchange-alt"></i>
-                </div>
-                <h3>Taux de Change Fixe</h3>
-                <p>Taux de change garanti: 1$ = 2,200 FC. Prix stables sans fluctuations, calculés au moment de votre commande.</p>
+        <div class="container hero-content">
+            <h1>ZAMBIA MARKET<br>Meubles de qualité avec <span>livraison gratuite</span></h1>
+            <p>Découvrez notre collection exclusive de meubles pour toute la maison. Qualité garantie, prix compétitifs et livraison à domicile avec paiement à la réception.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-whatsapp" onclick="openWhatsApp('Bonjour, je voudrais voir votre catalogue complet de meubles')">
+                    <i class="fab fa-whatsapp"></i> Voir catalogue WhatsApp
+                </button>
+                <button class="btn btn-secondary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-couch"></i> Explorer les produits
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section" id="contact">
-        <h2 class="section-title"><span>C</span>ontactez-nous</h2>
-        <p class="section-subtitle">Commandez facilement en suivant ces étapes simples via WhatsApp</p>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Comment commander ?</h3>
-                
-                <div class="steps-container">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div>Parcourez notre catalogue et sélectionnez les meubles qui vous intéressent</div>
+    <!-- Products Section -->
+    <section class="section products-section" id="products">
+        <div class="container">
+            <h2 class="section-title"><span>N</span>os Produits</h2>
+            <p class="section-subtitle">Cliquez sur "Prix sur WhatsApp" pour connaître le tarif exact de chaque produit. Taux de change: 1$ = 2,200 FC</p>
+            
+            <div class="categories">
+                <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
+                <button class="category-btn" onclick="filterProducts('salon')">Salon</button>
+                <button class="category-btn" onclick="filterProducts('chambre')">Chambre</button>
+                <button class="category-btn" onclick="filterProducts('cuisine')">Cuisine</button>
+                <button class="category-btn" onclick="filterProducts('salle-manger')">Salle à manger</button>
+                <button class="category-btn" onclick="filterProducts('bureau')">Bureau</button>
+                <button class="category-btn" onclick="filterProducts('exterieur')">Extérieur</button>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Produits chargés dynamiquement -->
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Pagination chargée dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <h2 class="section-title"><span>N</span>os Services</h2>
+            <p class="section-subtitle">Nous offrons des services complets pour garantir votre satisfaction totale</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div>Cliquez sur "Prix sur WhatsApp" sous chaque produit pour connaître le tarif</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div>Envoyez-nous votre adresse de livraison complète via WhatsApp</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div>Payez à la réception après vérification complète des meubles</div>
-                    </div>
+                    <h3>Livraison Gratuite</h3>
+                    <p>Livraison à domicile dans toute la ville. Notre chauffeur vous contacte personnellement pour fixer le rendez-vous de livraison.</p>
                 </div>
                 
-                <h3>Nos numéros WhatsApp</h3>
-                <div class="whatsapp-numbers">
-                    <a href="https://wa.me/243971300107" class="whatsapp-number-link" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+243 971 300 107</span>
-                    </a>
-                    <a href="https://wa.me/243890262391" class="whatsapp-number-link" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+243 890 262 391</span>
-                    </a>
-                    <a href="https://wa.me/260967160781" class="whatsapp-number-link" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+260 967 160 781</span>
-                    </a>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Paiement Sécurisé</h3>
+                    <p>Payez uniquement après avoir reçu et vérifié vos meubles. Paiement 100% sécurisé directement au chauffeur à la livraison.</p>
                 </div>
                 
-                <div class="exchange-rate-box">
-                    <p><strong>💰 Taux de change officiel</strong></p>
-                    <p style="font-size: 24px; margin: 10px 0;">1$ = 2,200 FC</p>
-                    <p><small>Prix fixes garantis - Pas de fluctuations de change</small></p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support WhatsApp 24/7</h3>
+                    <p>Notre équipe est disponible sur WhatsApp 24h/24 et 7j/7 pour répondre à toutes vos questions et prendre vos commandes.</p>
                 </div>
-            </div>
-            
-            <div class="contact-form">
-                <h3>Demande d'information</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nom complet *</label>
-                        <input type="text" id="name" placeholder="Votre nom et prénom" required>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Numéro WhatsApp *</label>
-                        <input type="tel" id="phone" placeholder="Ex: +243 971 300 107" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Votre demande *</label>
-                        <textarea id="message" placeholder="Décrivez les meubles qui vous intéressent, votre budget, etc." rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
-                    </button>
-                </form>
+                    <h3>Taux de Change Fixe</h3>
+                    <p>Taux de change garanti: 1$ = 2,200 FC. Prix stables sans fluctuations, calculés au moment de votre commande.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>ZAMBIA MARKET</h3>
-                <p>Spécialistes en vente de meubles de qualité pour toute la maison. Livraison à domicile avec paiement à la réception.</p>
-                <p>Plus de 1000 modèles disponibles.</p>
-            </div>
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title"><span>C</span>ontactez-nous</h2>
+            <p class="section-subtitle">Commandez facilement en suivant ces étapes simples via WhatsApp</p>
             
-            <div class="footer-column">
-                <h3>Catégories</h3>
-                <ul>
-                    <li><a href="#" onclick="filterProducts('salon'); return false;"><i class="fas fa-couch"></i> Meubles de salon</a></li>
-                    <li><a href="#" onclick="filterProducts('chambre'); return false;"><i class="fas fa-bed"></i> Meubles de chambre</a></li>
-                    <li><a href="#" onclick="filterProducts('salle-manger'); return false;"><i class="fas fa-utensils"></i> Salle à manger</a></li>
-                    <li><a href="#" onclick="filterProducts('bureau'); return false;"><i class="fas fa-desktop"></i> Bureau</a></li>
-                    <li><a href="#" onclick="filterProducts('cuisine'); return false;"><i class="fas fa-kitchen-set"></i> Cuisine</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href="#products"><i class="fas fa-shopping-cart"></i> Produits</a></li>
-                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
-                    <li><a href="https://wa.me/243971300107" target="_blank"><i class="fab fa-whatsapp"></i> Support WhatsApp</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <ul>
-                    <li><i class="fab fa-whatsapp"></i> +243 971 300 107</li>
-                    <li><i class="fab fa-whatsapp"></i> +243 890 262 391</li>
-                    <li><i class="fab fa-whatsapp"></i> +260 967 160 781</li>
-                    <li><i class="fas fa-clock"></i> Disponible 24h/24</li>
-                    <li><i class="fas fa-truck"></i> Livraison dans toute la ville</li>
-                </ul>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Comment commander ?</h3>
+                    
+                    <div class="contact-steps">
+                        <div class="contact-step">
+                            <div class="step-number">1</div>
+                            <div>Parcourez notre catalogue et sélectionnez les meubles qui vous intéressent</div>
+                        </div>
+                        <div class="contact-step">
+                            <div class="step-number">2</div>
+                            <div>Cliquez sur "Prix sur WhatsApp" sous chaque produit pour connaître le tarif</div>
+                        </div>
+                        <div class="contact-step">
+                            <div class="step-number">3</div>
+                            <div>Envoyez-nous votre adresse de livraison complète via WhatsApp</div>
+                        </div>
+                        <div class="contact-step">
+                            <div class="step-number">4</div>
+                            <div>Payez à la réception après vérification complète des meubles</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Nos numéros WhatsApp</h3>
+                    <div class="whatsapp-numbers">
+                        <a href="https://wa.me/243971300107" class="whatsapp-number" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+243 971 300 107</span>
+                        </a>
+                        <a href="https://wa.me/243890262391" class="whatsapp-number" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+243 890 262 391</span>
+                        </a>
+                        <a href="https://wa.me/260967160781" class="whatsapp-number" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+260 967 160 781</span>
+                        </a>
+                    </div>
+                    
+                    <div class="exchange-rate-box">
+                        <strong>💰 Taux de change officiel</strong>
+                        <div class="rate">1$ = 2,200 FC</div>
+                        <small>Prix fixes garantis - Pas de fluctuations de change</small>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Demande d'information</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" placeholder="Votre nom et prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Numéro WhatsApp *</label>
+                            <input type="tel" id="phone" placeholder="Ex: +243 971 300 107" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre demande *</label>
+                            <textarea id="message" placeholder="Décrivez les meubles qui vous intéressent, votre budget, etc." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-btn">
+                            <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-        
-        <div class="copyright">
-            <p>&copy; <span id="currentYear">2023</span> Zambia Market. Tous droits réservés. | Vente de meubles avec livraison à domicile</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>ZAMBIA MARKET</h3>
+                    <p>Spécialistes en vente de meubles de qualité pour toute la maison. Livraison à domicile avec paiement à la réception.</p>
+                    <p>Plus de 1000 modèles disponibles.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="#" onclick="filterProducts('salon'); return false;"><i class="fas fa-couch"></i> Meubles de salon</a></li>
+                        <li><a href="#" onclick="filterProducts('chambre'); return false;"><i class="fas fa-bed"></i> Meubles de chambre</a></li>
+                        <li><a href="#" onclick="filterProducts('salle-manger'); return false;"><i class="fas fa-utensils"></i> Salle à manger</a></li>
+                        <li><a href="#" onclick="filterProducts('bureau'); return false;"><i class="fas fa-desktop"></i> Bureau</a></li>
+                        <li><a href="#" onclick="filterProducts('cuisine'); return false;"><i class="fas fa-kitchen-set"></i> Cuisine</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
+                        <li><a href="#products"><i class="fas fa-shopping-cart"></i> Produits</a></li>
+                        <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                        <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                        <li><a href="https://wa.me/243971300107" target="_blank"><i class="fab fa-whatsapp"></i> Support WhatsApp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> +243 971 300 107</li>
+                        <li><i class="fab fa-whatsapp"></i> +243 890 262 391</li>
+                        <li><i class="fab fa-whatsapp"></i> +260 967 160 781</li>
+                        <li><i class="fas fa-clock"></i> Disponible 24h/24</li>
+                        <li><i class="fas fa-truck"></i> Livraison dans toute la ville</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2024</span> Zambia Market. Tous droits réservés. | Vente de meubles avec livraison à domicile</p>
+            </div>
         </div>
     </footer>
 
-    <!-- WHATSAPP FLOAT BUTTON -->
+    <!-- WhatsApp Float Button -->
     <a href="https://wa.me/243971300107" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- IMAGE MODAL -->
+    <!-- Image Modal -->
     <div class="image-modal" id="imageModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeImageModal()">&times;</button>
@@ -997,7 +1172,7 @@
     </div>
 
     <script>
-        // CONFIGURATION
+        // ===== CONFIGURATION =====
         const CONFIG = {
             whatsappNumbers: [
                 { number: '243971300107', label: '+243 971 300 107' },
@@ -1006,17 +1181,18 @@
             ],
             exchangeRate: 2200,
             productsPerPage: 12,
-            totalProducts: 100, // Pour la démo, modifiable jusqu'à 5000
-            defaultImage: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNGNUY1RjUiLz48cGF0aCBkPSJNNzUgODBMMTUwIDE1MEwyMjUgODBIMjc1TDE1MCAxNzVMNzUgODBIMTI1WiIgZmlsbD0iI0NDQyIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiPkltYWdlIG5vbiBkaXNwb25pYmxlPC90ZXh0Pjwvc3ZnPg=='
+            totalProducts: 100, // Modifiable selon le nombre réel de vos produits
+            imageBaseName: 'T-1 (',
+            imageExtension: '' // Pas d'extension
         };
 
-        // DONNÉES DES PRODUITS
+        // ===== VARIABLES GLOBALES =====
         let productsData = [];
         let currentPage = 1;
         let currentCategory = 'all';
         let filteredProducts = [];
 
-        // INITIALISATION DES PRODUITS
+        // ===== INITIALISATION DES PRODUITS =====
         function initializeProducts() {
             const categories = ['salon', 'chambre', 'cuisine', 'salle-manger', 'bureau', 'exterieur'];
             const descriptions = [
@@ -1038,17 +1214,16 @@
                 const category = categories[Math.floor(Math.random() * categories.length)];
                 const description = descriptions[Math.floor(Math.random() * descriptions.length)];
                 
-                // Génération du nom d'image selon votre structure
-                // Pour la démo: T-1 (1), T-1 (2), etc. jusqu'à 5000+
-                const imageNumber = ((i - 1) % 40) + 1; // Cycle sur 40 images pour la démo
-                const imageFile = `T-1 (${imageNumber})`;
+                // Nom de fichier exact selon votre structure GitHub
+                // Exemple: T-1 (1), T-1 (2), etc.
+                const imageName = CONFIG.imageBaseName + i + ')';
                 
                 productsData.push({
                     id: i,
                     name: `Meuble ${getCategoryName(category)} Modèle ${i}`,
                     category: category,
                     description: description,
-                    image: imageFile,
+                    image: imageName,
                     code: `ZM-${String(i).padStart(4, '0')}`,
                     dateAdded: new Date(Date.now() - Math.random() * 90 * 24 * 60 * 60 * 1000)
                 });
@@ -1073,7 +1248,7 @@
             return names[category] || 'Décoration';
         }
 
-        // AFFICHER LES PRODUITS
+        // ===== AFFICHAGE DES PRODUITS =====
         function renderProducts() {
             const productsGrid = document.getElementById('productsGrid');
             const startIndex = (currentPage - 1) * CONFIG.productsPerPage;
@@ -1084,9 +1259,9 @@
                 productsGrid.innerHTML = `
                     <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #666;">
                         <i class="fas fa-search" style="font-size: 50px; margin-bottom: 20px; color: #ccc;"></i>
-                        <h3 style="margin-bottom: 15px;">Aucun produit trouvé</h3>
+                        <h3 style="margin-bottom: 15px; color: var(--primary-color);">Aucun produit trouvé</h3>
                         <p>Aucun produit disponible dans cette catégorie pour le moment.</p>
-                        <button onclick="filterProducts('all')" style="margin-top: 20px; padding: 12px 25px; background: #1a3c27; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        <button onclick="filterProducts('all')" style="margin-top: 20px; padding: 12px 25px; background: var(--primary-color); color: white; border: none; border-radius: var(--border-radius); cursor: pointer; font-weight: 600;">
                             Voir tous les produits
                         </button>
                     </div>
@@ -1102,19 +1277,18 @@
                 
                 productsHTML += `
                     <div class="product-card">
-                        <div class="product-image-container" onclick="openImageModal('${product.image}', '${product.name}')">
-                            ${isNew ? '<div style="position: absolute; top: 10px; right: 10px; background: #ff4757; color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; z-index: 1;">NOUVEAU</div>' : ''}
+                        <div class="product-image" onclick="openImageModal('${product.image}', '${product.name}')">
+                            ${isNew ? '<div class="product-badge">NOUVEAU</div>' : ''}
                             <img src="${product.image}" 
                                  alt="${product.name}" 
-                                 class="product-image"
                                  loading="lazy"
-                                 onerror="this.onerror=null; this.src='${CONFIG.defaultImage}';">
+                                 onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNGNUY1RjUiLz48cGF0aCBkPSJNNzUgODBMMTUwIDE1MEwyMjUgODBIMjc1TDE1MCAxNzVMNzUgODBIMTI1WiIgZmlsbD0iI0NDQyIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiPkltYWdlIG5vbiBkaXNwb25pYmxlPC90ZXh0Pjwvc3ZnPg==';">
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name">${product.name}</h3>
+                            <h3 class="product-title">${product.name}</h3>
                             <div class="product-code">${product.code}</div>
                             <p class="product-description">${product.description}</p>
-                            <button class="whatsapp-price-button" onclick="getPriceOnWhatsApp(${product.id})">
+                            <button class="whatsapp-price-btn" onclick="getPriceOnWhatsApp(${product.id})">
                                 <i class="fab fa-whatsapp"></i> Prix sur WhatsApp
                             </button>
                         </div>
@@ -1125,9 +1299,9 @@
             productsGrid.innerHTML = productsHTML;
             renderPagination();
             
-            // Lazy loading pour images
+            // Lazy loading des images
             if ('IntersectionObserver' in window) {
-                const lazyImages = document.querySelectorAll('.product-image[loading="lazy"]');
+                const lazyImages = document.querySelectorAll('.product-image img[loading="lazy"]');
                 const imageObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1142,7 +1316,7 @@
             }
         }
 
-        // PAGINATION
+        // ===== PAGINATION =====
         function renderPagination() {
             const pagination = document.getElementById('pagination');
             const totalPages = Math.ceil(filteredProducts.length / CONFIG.productsPerPage);
@@ -1157,12 +1331,12 @@
             
             // Bouton précédent
             if (currentPage > 1) {
-                paginationHTML += `<button class="page-button" onclick="changePage(${currentPage - 1})" aria-label="Page précédente">
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage - 1})" aria-label="Page précédente">
                     <i class="fas fa-chevron-left"></i>
                 </button>`;
             }
             
-            // Pages
+            // Calcul des pages à afficher
             let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
             let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
             
@@ -1172,61 +1346,57 @@
             
             // Première page
             if (startPage > 1) {
-                paginationHTML += `<button class="page-button" onclick="changePage(1)">1</button>`;
+                paginationHTML += `<button class="page-btn" onclick="changePage(1)">1</button>`;
                 if (startPage > 2) {
-                    paginationHTML += `<span style="padding: 10px; color: #666;">...</span>`;
+                    paginationHTML += `<span style="padding: 10px; color: var(--gray-color);">...</span>`;
                 }
             }
             
             // Pages du milieu
             for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `<button class="page-button ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+                paginationHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             }
             
             // Dernière page
             if (endPage < totalPages) {
                 if (endPage < totalPages - 1) {
-                    paginationHTML += `<span style="padding: 10px; color: #666;">...</span>`;
+                    paginationHTML += `<span style="padding: 10px; color: var(--gray-color);">...</span>`;
                 }
-                paginationHTML += `<button class="page-button" onclick="changePage(${totalPages})">${totalPages}</button>`;
+                paginationHTML += `<button class="page-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
             }
             
             // Bouton suivant
             if (currentPage < totalPages) {
-                paginationHTML += `<button class="page-button" onclick="changePage(${currentPage + 1})" aria-label="Page suivante">
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage + 1})" aria-label="Page suivante">
                     <i class="fas fa-chevron-right"></i>
                 </button>`;
             }
             
-            // Info
-            paginationHTML += `
-                <div style="color: #666; font-size: 14px; margin-left: 10px;">
-                    Page ${currentPage} sur ${totalPages} • ${filteredProducts.length} produits
-                </div>
-            `;
+            // Informations
+            paginationHTML += `<div class="page-info">Page ${currentPage} sur ${totalPages} • ${filteredProducts.length} produits</div>`;
             
             pagination.innerHTML = paginationHTML;
         }
 
-        // CHANGER DE PAGE
+        // ===== CHANGEMENT DE PAGE =====
         function changePage(page) {
             currentPage = page;
             renderProducts();
-            // Scroll vers le haut des produits
+            // Scroll vers le haut de la section produits
             const productsSection = document.getElementById('products');
-            const headerHeight = document.querySelector('.header').offsetHeight;
+            const headerHeight = document.querySelector('header').offsetHeight;
             window.scrollTo({
                 top: productsSection.offsetTop - headerHeight - 20,
                 behavior: 'smooth'
             });
         }
 
-        // FILTRER LES PRODUITS
+        // ===== FILTRAGE DES PRODUITS =====
         function filterProducts(category) {
             currentCategory = category;
             currentPage = 1;
             
-            // Mettre à jour les boutons actifs
+            // Mettre à jour les boutons de catégorie actifs
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -1241,12 +1411,12 @@
             renderProducts();
         }
 
-        // OBTENIR LE PRIX SUR WHATSAPP
+        // ===== OBTENIR LE PRIX SUR WHATSAPP =====
         function getPriceOnWhatsApp(productId) {
             const product = productsData.find(p => p.id === productId);
             if (!product) return;
             
-            // Choisir un numéro au hasard
+            // Choisir un numéro WhatsApp au hasard
             const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
             
             const message = encodeURIComponent(
@@ -1270,7 +1440,7 @@
             saveToHistory(product);
         }
 
-        // OUVRIR WHATSAPP GÉNÉRAL
+        // ===== OUVRIR WHATSAPP GÉNÉRAL =====
         function openWhatsApp(prefilledMessage = '') {
             const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
             const message = encodeURIComponent(
@@ -1280,7 +1450,7 @@
             window.open(`https://wa.me/${randomNumber.number}?text=${message}`, '_blank');
         }
 
-        // SAUVEGARDER DANS L'HISTORIQUE
+        // ===== SAUVEGARDER DANS L'HISTORIQUE =====
         function saveToHistory(product) {
             try {
                 let history = JSON.parse(localStorage.getItem('zambiaMarketHistory') || '[]');
@@ -1301,7 +1471,7 @@
             }
         }
 
-        // MODAL IMAGE
+        // ===== MODAL D'IMAGE =====
         function openImageModal(imageSrc, productName) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
@@ -1319,42 +1489,67 @@
             document.getElementById('modalImage').src = '';
         }
 
-        // GESTION DU FORMULAIRE
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // ===== GESTION DU MENU MOBILE =====
+        function setupMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
             
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const message = document.getElementById('message').value.trim();
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
             
-            if (!name || !phone || !message) {
-                alert('Veuillez remplir tous les champs obligatoires.');
-                return;
-            }
-            
-            const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
-            
-            const whatsappMessage = encodeURIComponent(
-                `*📞 NOUVELLE DEMANDE - ZAMBIA MARKET*\n\n` +
-                `👤 *Nom :* ${name}\n` +
-                `📱 *Téléphone :* ${phone}\n\n` +
-                `📝 *Message :*\n${message}\n\n` +
-                `💱 *Taux de change :* 1$ = ${CONFIG.exchangeRate.toLocaleString()} FC\n\n` +
-                `_Demande envoyée depuis le site web Zambia Market_`
-            );
-            
-            window.open(`https://wa.me/${randomNumber.number}?text=${whatsappMessage}`, '_blank');
-            
-            // Réinitialiser le formulaire
-            this.reset();
-            
-            // Message de confirmation
-            setTimeout(() => {
-                alert('✅ Merci ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
-            }, 100);
-        });
+            // Fermer le menu en cliquant sur un lien
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        }
 
-        // INITIALISATION
+        // ===== GESTION DU FORMULAIRE =====
+        function setupContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const message = document.getElementById('message').value.trim();
+                
+                if (!name || !phone || !message) {
+                    alert('Veuillez remplir tous les champs obligatoires.');
+                    return;
+                }
+                
+                const randomNumber = CONFIG.whatsappNumbers[Math.floor(Math.random() * CONFIG.whatsappNumbers.length)];
+                
+                const whatsappMessage = encodeURIComponent(
+                    `*📞 NOUVELLE DEMANDE - ZAMBIA MARKET*\n\n` +
+                    `👤 *Nom :* ${name}\n` +
+                    `📱 *Téléphone :* ${phone}\n\n` +
+                    `📝 *Message :*\n${message}\n\n` +
+                    `💱 *Taux de change :* 1$ = ${CONFIG.exchangeRate.toLocaleString()} FC\n\n` +
+                    `_Demande envoyée depuis le site web Zambia Market_`
+                );
+                
+                window.open(`https://wa.me/${randomNumber.number}?text=${whatsappMessage}`, '_blank');
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                
+                // Message de confirmation
+                setTimeout(() => {
+                    alert('✅ Merci ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
+                }, 100);
+            });
+        }
+
+        // ===== INITIALISATION =====
         document.addEventListener('DOMContentLoaded', function() {
             // Mettre à jour l'année du copyright
             document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -1362,14 +1557,20 @@
             // Initialiser les produits
             initializeProducts();
             
-            // Fermer le modal en cliquant à l'extérieur
+            // Configurer le menu mobile
+            setupMobileMenu();
+            
+            // Configurer le formulaire
+            setupContactForm();
+            
+            // Fermer le modal d'image en cliquant à l'extérieur
             document.getElementById('imageModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeImageModal();
                 }
             });
             
-            // Fermer avec Échap
+            // Fermer le modal d'image avec la touche Échap
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeImageModal();
@@ -1385,13 +1586,35 @@
                     const target = document.querySelector(href);
                     if (target) {
                         e.preventDefault();
-                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const headerHeight = document.querySelector('header').offsetHeight;
                         window.scrollTo({
                             top: target.offsetTop - headerHeight,
                             behavior: 'smooth'
                         });
                     }
                 });
+            });
+            
+            // Gestion du scroll pour le header
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    if (scrollTop > lastScrollTop) {
+                        // Scroll vers le bas - cacher
+                        header.style.transform = 'translateY(-100%)';
+                    } else {
+                        // Scroll vers le haut - montrer
+                        header.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
             });
         });
     </script>
