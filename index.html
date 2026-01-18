@@ -921,7 +921,8 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="logo" alt="Zambia Market" class="logo-img"
+                <!-- CORRIGÉ : Utiliser Bg1.jpg comme logo -->
+                <img src="Bg1.jpg" alt="Zambia Market" class="logo-img"
                      onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiMxYTNjMjciLz48cGF0aCBkPSJNMTAgMTVMMjUgMzVMNDAgMTVINDBMMjUgNDBMMTAgMTVIMTVaIiBmaWxsPSIjZmZkNzAwIi8+PC9zdmc+'">
                 <div class="logo-text">
                     <h1>ZAMBIA MARKET</h1>
@@ -1182,8 +1183,8 @@
             exchangeRate: 2200,
             productsPerPage: 12,
             totalProducts: 100, // Modifiable selon le nombre réel de vos produits
-            imageBaseName: 'T-1 (',
-            imageExtension: '' // Pas d'extension
+            imageBaseName: 'T-1 (', // CORRIGÉ : Format correct
+            imageExtension: '.jpg' // CORRIGÉ : Ajout de l'extension
         };
 
         // ===== VARIABLES GLOBALES =====
@@ -1214,9 +1215,9 @@
                 const category = categories[Math.floor(Math.random() * categories.length)];
                 const description = descriptions[Math.floor(Math.random() * descriptions.length)];
                 
-                // Nom de fichier exact selon votre structure GitHub
-                // Exemple: T-1 (1), T-1 (2), etc.
-                const imageName = CONFIG.imageBaseName + i + ')';
+                // CORRIGÉ : Format correct pour les noms de fichiers
+                // Exemple: "T-1 (1).jpg", "T-1 (2).jpg", etc.
+                const imageName = CONFIG.imageBaseName + i + ')' + CONFIG.imageExtension;
                 
                 productsData.push({
                     id: i,
